@@ -1,0 +1,7 @@
+{
+  "name": "VolleyGiocare",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
