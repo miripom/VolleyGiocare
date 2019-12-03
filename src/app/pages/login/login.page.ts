@@ -10,8 +10,6 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LoginPage implements OnInit {
     private loginFormModel: FormGroup;
-    private loginTitle: string;
-    private loginSubTitle: string;
 
     constructor(private formBuilder: FormBuilder,
                 private alertController: AlertController,
@@ -21,37 +19,20 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
         this.loginFormModel = this.formBuilder.group({
-            email: ['amleto', Validators.compose([
+            email: ['erika', Validators.compose([
                 Validators.required
             ])],
-            password: ['amleto', Validators.compose([
+            password: ['erika', Validators.compose([
                 Validators.required
             ])]
         });
-        this.initTranslate();
+    }
+
+    onRegister() {
+        this.navController.navigateRoot('registrazione');
     }
 
     onLogin() {
         this.navController.navigateRoot('tabs');
-    }
-
-    async showLoginError() {
-        const alert = await this.alertController.create({
-            header: this.loginTitle,
-            message: this.loginSubTitle,
-            buttons: ['OK']
-        });
-
-        await alert.present();
-    }
-
-
-    private initTranslate() {
-        this.translateService.get('LOGIN_ERROR_SUB_TITLE').subscribe((data) => {
-            this.loginSubTitle = data;
-        });
-        this.translateService.get('LOGIN_ERROR_TITLE').subscribe((data) => {
-            this.loginTitle = data;
-        });
     }
 }
