@@ -51,14 +51,14 @@
     </ion-list>
 
     <div class="ion-margin-top">
-      <ion-button size="medium" expand="full" shape="round" color="primary"   [disabled]="!signUpFormModel.valid" tappable>
+      <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onSignUp()"   [disabled]="!signUpFormModel.valid" tappable>
         <ion-icon slot="start" name="done-all" class="ion-padding-end" ></ion-icon>
         {{ 'CONFERMA_REGISTRAZIONE_BOTTONE' | translate }}
       </ion-button>
     </div>
 
     <div class="ion-margin-top">
-      <ion-button class="bordo" size="medium" fill="outline" expand="full" shape="round"  color="light"  (click)="onSignIn()"  tappable>
+      <ion-button class="bordo" size="medium" fill="outline" expand="full" shape="round" color="light" (click)="onLogin()"   tappable>
         <ion-icon slot="start" name="log-in"  class="ion-padding-end text-primary" ></ion-icon>
         <p class="text-primary">{{ 'LOGIN_BOTTONE' | translate }}</p>
       </ion-button>

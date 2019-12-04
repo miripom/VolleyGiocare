@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AlertController, NavController} from '@ionic/angular';
-import {TranslateService} from '@ngx-translate/core';
+import {AlertController, LoadingController, NavController} from '@ionic/angular';
+import {LoginAccount, UtenteService} from '../../services/utente.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
     selector: 'app-login',
@@ -10,19 +11,22 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LoginPage implements OnInit {
     private loginFormModel: FormGroup;
+    private loading;
 
     constructor(private formBuilder: FormBuilder,
+                private navController: NavController,
                 private alertController: AlertController,
-                private translateService: TranslateService,
-                private navController: NavController) {
+                private loadingCtrl: LoadingController,
+                private utenteService: UtenteService) {
+
     }
 
     ngOnInit() {
         this.loginFormModel = this.formBuilder.group({
-            email: ['erika', Validators.compose([
+            email: ['', Validators.compose([
                 Validators.required
             ])],
-            password: ['erika', Validators.compose([
+            password: ['', Validators.compose([
                 Validators.required
             ])]
         });
@@ -32,7 +36,41 @@ export class LoginPage implements OnInit {
         this.navController.navigateRoot('registrazione');
     }
 
-    onLogin() {
-        this.navController.navigateRoot('tabs');
+    onSignIn() {
+        this.loadingCtrl.create({
+            message: 'Autenticazione in corso...'
+        }).then((overlay) => {
+            this.loading = overlay;
+            this.loading.present();
+        });
+
+        setTimeout(() => {
+            this.loading.dismiss();
+        }, 2000);
+
+        const loginAccount: LoginAccount = this.loginFormModel.value;
+        this.utenteService.login(loginAccount).subscribe(res => {
+                this.loginFormModel.reset();
+                this.utenteService.getUtente().subscribe();
+                this.navController.navigateRoot('/tabs');
+            },
+            (err: HttpErrorResponse) => {
+                if (err.status === 401) {
+                    console.error('login request error: ' + err.status);
+                    this.showLoginError();
+                }
+            });
     }
+
+    async showLoginError() {
+        const alert = await this.alertController.create({
+            header: 'Attenzione',
+            message: 'Email e/o Password errate',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
+
 }

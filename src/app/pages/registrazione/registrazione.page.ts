@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Account, UtenteService} from '../../services/utente.service';
 
 @Component({
     selector: 'app-registrazione',
@@ -12,6 +14,8 @@ export class RegistrazionePage implements OnInit {
 
     constructor(private navController: NavController,
                 private formBuilder: FormBuilder,
+                private utenteService: UtenteService,
+                private alertController: AlertController,
     ) {
     }
 
@@ -38,7 +42,45 @@ export class RegistrazionePage implements OnInit {
         });
     }
 
-    onSignIn() {
+    onSignUp() {
+        const account: Account = this.signUpFormModel.value;
+        this.utenteService.signUp(account).subscribe(() => {
+                this.signUpFormModel.reset();
+                this.navController.navigateRoot('/login');
+            },
+            (err: HttpErrorResponse) => {
+                if (err.status === 401) {
+                    console.error('login request error: ' + err.status);
+                    this.showLoginError(err.error, 'error');
+                }
+                if (err.status === 501) {
+                    console.error('login request error: ' + err.status);
+                    this.showLoginError(err.error, 'error');
+                }
+                if (err.status === 500) {
+                    console.error('login request error: ' + err.status);
+                    this.showLoginError(err.error, 'error');
+                }
+                if (err.ok) {
+                    console.log('OK');
+                }
+
+
+            }
+        );
+    }
+
+    async showLoginError(errMessage, header) {
+        const alert = await this.alertController.create({
+            header,
+            message: errMessage,
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
+    onLogin() {
         this.navController.navigateRoot('login');
     }
 }
