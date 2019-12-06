@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     }
 
     onSignIn() {
-      /*  this.loadingCtrl.create({
+        this.loadingCtrl.create({
             message: 'Autenticazione in corso...'
         }).then((overlay) => {
             this.loading = overlay;
@@ -59,8 +59,9 @@ export class LoginPage implements OnInit {
                     console.error('login request error: ' + err.status);
                     this.showLoginError();
                 }
-            });*/
-      this.navController.navigateRoot('/tabs');
+            });
+        this.navController.navigateRoot('/tabs');
+
     }
 
     async showLoginError() {

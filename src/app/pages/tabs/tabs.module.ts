@@ -4,11 +4,10 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {TabsPageRoutingModule} from './tabs-routing.module';
-
 import {TabsPage} from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule, Routes} from '@angular/router';
+
 const routes: Routes = [
     {
         path: '',
@@ -19,7 +18,8 @@ const routes: Routes = [
                 children: [
                     {
                         path: '',
-                        loadChildren: () => import('../partite/partite.module').then( m => m.PartitePageModule)
+                        loadChildren: () => import('../partite/partite.module').then(m => m.PartitePageModule),
+
                     }
                     ,
                 ]

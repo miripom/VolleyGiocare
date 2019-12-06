@@ -47,6 +47,7 @@ export class UtenteService {
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.authToken = token;
+                console.log(this.authToken);
                 // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
                 // profilo dell'utente stesso non si fa una chiamata REST.
                 this.storage.set(UTENTE_STORAGE, resp.body);
@@ -98,6 +99,8 @@ export class UtenteService {
             map((resp: HttpResponse<Utente>) => {}
 
             ));
+
+
     }
 
 
