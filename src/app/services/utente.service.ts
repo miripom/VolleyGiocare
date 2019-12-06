@@ -95,11 +95,9 @@ export class UtenteService {
             .set('nome_ruolo', account.ruolo.nome_ruolo);
 
         return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
-            map((resp: HttpResponse<Utente>) => {
-                // console.log(resp);
+            map((resp: HttpResponse<Utente>) => {}
 
-
-            }));
+            ));
     }
 
 

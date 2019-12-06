@@ -49,7 +49,6 @@ export class RegistrazionePage implements OnInit {
         const account: Utente = this.signUpFormModel.value;
         account.ruolo = new TipologiaRuolo();
         account.ruolo.nome_ruolo = this.signUpFormModel.get('ruolo').value;
-        console.log(account.ruolo.nome_ruolo);
 
         this.utenteService.signUp(account).subscribe(() => {
                 this.signUpFormModel.reset();
