@@ -13,7 +13,9 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
 
-*.json
+package-lock.json
+package.json
+proxy.conf.json
 
 *.log
 log.txt

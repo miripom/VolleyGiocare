@@ -6,15 +6,8 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {TipologiaRuolo} from '../model/tipologiaRuolo.model';
 
-export interface Account {
-    name: string;
-    surname: string;
-    email: string;
-    password: string;
-    phone: string;
-    favourite_role: string;
-}
 
 export interface LoginAccount {
     email: string;
@@ -92,16 +85,16 @@ export class UtenteService {
     }
 
 
-    signUp(account: Account) {
+    signUp(account: Utente) {
         const params = new HttpParams()
-            .set('name', account.name)
-            .set('surname', account.surname)
+            .set('nome', account.nome)
+            .set('cognome', account.cognome)
             .set('email', account.email)
             .set('password', account.password)
-            .set('phone', account.phone)
-            .set('favourite_role', account.favourite_role);
+            .set('telefono', account.telefono)
+            .set('nome_ruolo', account.ruolo.nome_ruolo);
 
-        return this.http.post<Utente>(URL.SIGNUP, account, {observe: 'response'}).pipe(
+        return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 // console.log(resp);
 

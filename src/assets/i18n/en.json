@@ -1,0 +1,24 @@
+{
+  "LOGIN_TITOLO": "Login",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "PASSWORD_RICHIESTA": "Password Required",
+  "EMAIL_RICHIESTA": "Email Required",
+  "LOGIN_BOTTONE": "SIGN IN",
+  "REGISTRAZIONE_BOTTONE": "SIGN UP",
+
+  "REGISTRAZIONE_TITOLO": "Sign Up",
+  "RUOLO_PREFERITO": "Favourite Role",
+  "NOME": "Name",
+  "COGNOME": "Last Name",
+  "EMAIL": "Email",
+  "TELEFONO": "Phone",
+  "SELEZIONA": "Select",
+  "LIBERO": "Libero",
+  "PALLEGGIATORE": "Setter",
+  "CENTRALE": "Middle blocker",
+  "OPPOSTO": "Opposite",
+  "MARTELLO": "Wing-spiker",
+  "CONFERMA_REGISTRAZIONE_BOTTONE": "CONFIRM REGISTRATION",
+  "PARTITE_PAGE": "Matches"
+}

@@ -15,6 +15,11 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
+  {
+    path: 'partite',
+    loadChildren: () => import('./pages/partite/partite.module').then( m => m.PartitePageModule)
+  },
+
 ];
 
 @NgModule({

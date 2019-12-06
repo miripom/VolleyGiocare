@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular';
 import {HttpErrorResponse} from '@angular/common/http';
-import {Account, UtenteService} from '../../services/utente.service';
+import {UtenteService} from '../../services/utente.service';
+import {Utente} from '../../model/utente.model';
+import {TipologiaRuolo} from '../../model/tipologiaRuolo.model';
 
 @Component({
     selector: 'app-registrazione',
@@ -33,17 +35,22 @@ export class RegistrazionePage implements OnInit {
             password: ['', Validators.compose([
                 Validators.required
             ])],
+            ruolo: [Validators.compose([
+                Validators.required]
+            )],
             telefono: ['', Validators.compose([
                 Validators.required
             ])],
-            ruolo_preferito: [Validators.compose([
-                Validators.required]
-            )]
+
         });
     }
 
     onSignUp() {
-        const account: Account = this.signUpFormModel.value;
+        const account: Utente = this.signUpFormModel.value;
+        account.ruolo = new TipologiaRuolo();
+        account.ruolo.nome_ruolo = this.signUpFormModel.get('ruolo').value;
+        console.log(account.ruolo.nome_ruolo);
+
         this.utenteService.signUp(account).subscribe(() => {
                 this.signUpFormModel.reset();
                 this.navController.navigateRoot('/login');

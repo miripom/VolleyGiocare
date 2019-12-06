@@ -1,0 +1,24 @@
+{
+  "LOGIN_TITOLO": "Login",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "PASSWORD_RICHIESTA": "Password richiesta",
+  "EMAIL_RICHIESTA": "Email Richiesta",
+  "LOGIN_BOTTONE" : "ACCEDI",
+  "REGISTRAZIONE_BOTTONE" : "REGISTRATI",
+
+  "REGISTRAZIONE_TITOLO": "Registrazione",
+  "RUOLO_PREFERITO": "Ruolo preferito",
+  "NOME": "Nome",
+  "COGNOME": "Cognome",
+  "EMAIL": "Email",
+  "TELEFONO": "Telefono",
+  "SELEZIONA": "Seleziona",
+  "LIBERO": "Libero",
+  "PALLEGGIATORE": "Palleggiatore",
+  "CENTRALE": "Centrale",
+  "OPPOSTO": "Opposto",
+  "MARTELLO": "Martello",
+  "CONFERMA_REGISTRAZIONE_BOTTONE": "CONFERMA REGISTRAZIONE",
+  "PARTITE_PAGE": "Partite"
+}

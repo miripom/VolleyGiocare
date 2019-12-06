@@ -4,9 +4,9 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {HomePageRoutingModule} from './home-routing.module';
+import {PartitePageRoutingModule} from './partite-routing.module';
 
-import {HomePage} from './home.page';
+import {PartitePage} from './partite.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
@@ -14,10 +14,10 @@ import {TranslateModule} from '@ngx-translate/core';
         CommonModule,
         FormsModule,
         IonicModule,
-        HomePageRoutingModule,
-        TranslateModule
+        PartitePageRoutingModule,
+        TranslateModule.forChild()
     ],
-    declarations: [HomePage]
+    declarations: [PartitePage]
 })
-export class HomePageModule {
+export class PartitePageModule {
 }

@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     }
 
     onSignIn() {
-        this.loadingCtrl.create({
+      /*  this.loadingCtrl.create({
             message: 'Autenticazione in corso...'
         }).then((overlay) => {
             this.loading = overlay;
@@ -52,14 +52,15 @@ export class LoginPage implements OnInit {
         this.utenteService.login(loginAccount).subscribe(res => {
                 this.loginFormModel.reset();
                 this.utenteService.getUtente().subscribe();
-                this.navController.navigateRoot('/tabs');
+                this.navController.navigateRoot('/tabs/partite');
             },
             (err: HttpErrorResponse) => {
                 if (err.status === 401) {
                     console.error('login request error: ' + err.status);
                     this.showLoginError();
                 }
-            });
+            });*/
+      this.navController.navigateRoot('/tabs');
     }
 
     async showLoginError() {
