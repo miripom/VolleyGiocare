@@ -1,6 +1,6 @@
 export const LINGUA = 'lingua';
 
-export const X_AUTH = 'X-Auth';
+export const X_AUTH = 'token';
 
 export const AUTH_TOKEN = 'auth-token';
 
