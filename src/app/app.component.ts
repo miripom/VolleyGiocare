@@ -16,7 +16,6 @@ import {Router} from '@angular/router';
     styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-    private u = new Utente();
     private utente$: BehaviorSubject<Utente>;
     private isLoggedIn$: Observable<boolean>;
 
@@ -28,7 +27,6 @@ export class AppComponent implements OnInit {
         private linguaService: LinguaService,
         private utenteService: UtenteService,
         private navController: NavController,
-        private router: Router
     ) {
         this.initializeApp();
     }
@@ -44,18 +42,14 @@ export class AppComponent implements OnInit {
     ];
 
     ngOnInit(): void {
-
         this.utente$ = this.utenteService.getUtente();
         this.isLoggedIn$ = this.utenteService.isLogged();
     }
 
     initializeApp() {
         this.platform.ready().then(() => {
-            this.utenteService.getUtente().subscribe(res => {
-                this.u = res;
-            });
-            // this.statusBar.styleDefault();
-            // this.splashScreen.hide();
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
             this.initTranslate();
         });
     }
@@ -78,6 +72,7 @@ export class AppComponent implements OnInit {
 
     logout() {
         this.utenteService.logout();
-
+        this.navController.navigateRoot('login');
     }
+
 }

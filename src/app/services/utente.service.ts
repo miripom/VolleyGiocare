@@ -6,7 +6,6 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {TipologiaRuolo} from '../model/tipologiaRuolo.model';
 
 
 export interface LoginAccount {
@@ -38,16 +37,12 @@ export class UtenteService {
     }
 
     login(loginAccount: LoginAccount): Observable<Utente> {
-        const params = new HttpParams()
-            .set('email', loginAccount.email)
-            .set('password', loginAccount.password);
 
         return this.http.post<Utente>(URL.LOGIN, loginAccount, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.authToken = token;
-                console.log(this.authToken);
                 // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
                 // profilo dell'utente stesso non si fa una chiamata REST.
                 this.storage.set(UTENTE_STORAGE, resp.body);
@@ -60,11 +55,9 @@ export class UtenteService {
     }
 
     logout() {
-        // return this.http.get(URL.LOGOUT).subscribe(res => {o
-        // console.log(res);
-        //   });
         this.authToken = null;
         this.loggedIn$.next(false);
+        this.utente$.next(null);
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);
 
@@ -96,8 +89,8 @@ export class UtenteService {
             .set('nome_ruolo', account.ruolo.nome_ruolo);
 
         return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
-            map((resp: HttpResponse<Utente>) => {}
-
+            map((resp: HttpResponse<Utente>) => {
+                }
             ));
 
 

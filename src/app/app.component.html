@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane>
-    <ion-menu  *ngIf="isLoggedIn$ | async">
+    <ion-menu *ngIf="(utente$ | async) as utente">
       <ion-header class="ion-text-center">
         <ion-toolbar color="primary">
 
@@ -9,7 +9,8 @@
           </ion-avatar>
 
 
-          <ion-text class="ion-text-center text10 ion-padding-start ion-margin-start"  color="white"  slot="start">
+          <ion-text class="ion-text-center text10 ion-padding-start ion-margin-start"  color="light"  slot="start">
+           {{utente.nome + " " + utente.cognome}}
           </ion-text>
 
         </ion-toolbar>

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UtenteService} from '../../services/utente.service';
-import {NavController} from '@ionic/angular';
+
 
 @Component({
     selector: 'app-partite',
@@ -9,12 +8,10 @@ import {NavController} from '@ionic/angular';
 })
 export class PartitePage implements OnInit {
 
-    constructor(private utenteService: UtenteService,
-                private navController: NavController) {
+    constructor() {
     }
 
     ngOnInit() {
     }
-
 
 }
