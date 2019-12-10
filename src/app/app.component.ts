@@ -17,7 +17,6 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
     private utente$: BehaviorSubject<Utente>;
-    private isLoggedIn$: Observable<boolean>;
 
     constructor(
         private platform: Platform,
@@ -43,7 +42,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.utente$ = this.utenteService.getUtente();
-        this.isLoggedIn$ = this.utenteService.isLogged();
     }
 
     initializeApp() {
