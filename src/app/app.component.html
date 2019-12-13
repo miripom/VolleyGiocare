@@ -1,11 +1,11 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu *ngIf="(utente$ | async) as utente">
+  <ion-split-pane contentId="menu-content">
+    <ion-menu *ngIf="(utente$ | async) as utente" contentId="menu-content">
       <ion-header class="ion-text-center">
         <ion-toolbar color="primary">
 
           <ion-avatar slot="start" class="foto ion-padding-start"  >
-            <img src="/assets/images/martello.jpg">
+            <img src="../assets/images/martello.jpg">
           </ion-avatar>
 
 
@@ -28,7 +28,7 @@
 
           <ion-item (click)="logout()">
             <ion-icon slot="start" name="key"></ion-icon>
-            <ion-label>Logout</ion-label>
+            <ion-label>{{'LOGOUT' | translate}}</ion-label>
           </ion-item>
 
         </ion-list>
@@ -36,6 +36,6 @@
       </ion-content>
 
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

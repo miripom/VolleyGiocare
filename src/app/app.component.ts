@@ -4,7 +4,7 @@ import {NavController, Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {TranslateService} from '@ngx-translate/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {Utente} from './model/utente.model';
 import {LinguaService} from './services/lingua.service';
 import {UtenteService} from './services/utente.service';

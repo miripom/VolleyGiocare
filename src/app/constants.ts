@@ -13,8 +13,7 @@ export const URL_BASE = USE_PROXY ? '/api' : 'http://127.0.0.1:8000';
 
 export const URL = {
     SIGNUP: URL_BASE + '/auth/register',
-    LOGIN: URL_BASE + '/auth/login',
-    LOGOUT: URL_BASE + '/auth/logout'
+    LOGIN: URL_BASE + '/auth/login'
 
 
 };
