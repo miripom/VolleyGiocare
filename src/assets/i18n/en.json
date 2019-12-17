@@ -23,5 +23,8 @@
   "PARTITE_TITOLO": "Matches",
   "LOGOUT": "Logout",
   "IMPOSTAZIONI": "Settings",
-  "NUOVA_PARTITA_TITOLO": "New Match"
+  "NUOVA_PARTITA_TITOLO": "New Match",
+  "DATA_ORA": "Date",
+  "SELECT": "Select",
+  "DETTAGLIO_PARTITA": "Match Detail"
 }

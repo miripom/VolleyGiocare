@@ -1,13 +1,15 @@
 {
   "LOGIN_TITOLO": "Login",
+  "REGISTRAZIONE_TITOLO": "Registrazione",
+  "PARTITE_TITOLO": "Partite",
+  "NUOVA_PARTITA_TITOLO": "Nuova Partita",
+
   "EMAIL": "Email",
   "PASSWORD": "Password",
   "PASSWORD_RICHIESTA": "Password richiesta",
   "EMAIL_RICHIESTA": "Email Richiesta",
   "LOGIN_BOTTONE" : "ACCEDI",
   "REGISTRAZIONE_BOTTONE" : "REGISTRATI",
-
-  "REGISTRAZIONE_TITOLO": "Registrazione",
   "RUOLO_PREFERITO": "Ruolo preferito",
   "NOME": "Nome",
   "COGNOME": "Cognome",
@@ -20,8 +22,11 @@
   "OPPOSTO": "Opposto",
   "MARTELLO": "Martello",
   "CONFERMA_REGISTRAZIONE_BOTTONE": "CONFERMA REGISTRAZIONE",
-  "PARTITE_TITOLO": "Partite",
+
   "LOGOUT": "Logout",
   "IMPOSTAZIONI": "Impostazioni",
-  "NUOVA_PARTITA_TITOLO": "Nuova Partita"
+
+  "DATA_ORA": "Data e Ora",
+  "SELECT": "Seleziona",
+  "DETTAGLIO_PARTITA": "Dettaglio Partita"
 }

@@ -13,11 +13,6 @@
   <form [formGroup]="newMatchFormModel" class="list-form">
     <ion-list>
 
-      <!-- <ion-item  padding-end align-items-start >
-           <ion-icon name="person" slot="start"></ion-icon>
-           <ion-input formControlName="org"></ion-input>
-       </ion-item>-->
-
       <ion-item class="ion-padding-end ion-align-items-start" >
         <ion-icon name="bookmark" slot="start"></ion-icon>
         <ion-input placeholder="Title" formControlName="titolo"></ion-input>
@@ -27,13 +22,6 @@
         <ion-icon name="pin" slot="start"></ion-icon>
         <ion-input placeholder="Location" formControlName="luogo"></ion-input>
       </ion-item>
-
-      <!-- <ion-item class="text10">
-           <ion-icon name="time" slot="start"></ion-icon>
-          // <ion-input placeholder="Date and Time"></ion-input>
-           <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" value="0000-00-00T00:00"></ion-datetime>
-       </ion-item>-->
-
 
 
       <ion-item class="ion-padding-end ion-align-items-start" >
@@ -48,15 +36,15 @@
       </ion-item>
 
       <ion-item class="ion-padding-end ion-align-items-start" >
-        <ion-label>Data </ion-label>
+        <ion-label>{{'DATA_ORA' | translate}} </ion-label>
         <ion-datetime  placeholder="Seleziona"
                        display-format="DD MMM YYYY, HH:mm"
                        formControlName="data_ora"
-                       value="Seleziona"
-                       min="2019-11-01" max="2030-12-01"></ion-datetime>
+                       min="2020-01-01" max="2030-12-01"></ion-datetime>
       </ion-item>
 
 
+ <!-- DA SISTEMARE DINAMICAMENTE-->
 
       <ion-list>
         <ion-item>
@@ -72,10 +60,9 @@
     </ion-list>
   </form>
 
-  <div margin-top="40px" class="ion-padding-top">
-    <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()"  tappable>
-      <ion-icon name="log-in" class="ion-padding-end" ></ion-icon>
-      CREA PARTITA
+  <div class="ion-padding-top ion-margin-top">
+    <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()"  tappable>
+      <ion-icon slot="start" name="checkmark"></ion-icon>      CREA PARTITA
     </ion-button>
   </div>
 </ion-content>

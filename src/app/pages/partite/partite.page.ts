@@ -15,7 +15,7 @@ export class PartitePage implements OnInit {
     ngOnInit() {
     }
 
-    nuova() {
+    nuovaPartita() {
         this.nav.navigateRoot('nuova-partita');
     }
 }
