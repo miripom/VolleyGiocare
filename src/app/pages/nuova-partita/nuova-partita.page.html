@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/partite"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{'NUOVA_PARTITA_TITOLO' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="animated fadeIn login auth-page ion-padding">
+
+  <form [formGroup]="newMatchFormModel" class="list-form">
+    <ion-list>
+
+      <!-- <ion-item  padding-end align-items-start >
+           <ion-icon name="person" slot="start"></ion-icon>
+           <ion-input formControlName="org"></ion-input>
+       </ion-item>-->
+
+      <ion-item class="ion-padding-end ion-align-items-start" >
+        <ion-icon name="bookmark" slot="start"></ion-icon>
+        <ion-input placeholder="Title" formControlName="titolo"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-end ion-align-items-start" >
+        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-input placeholder="Location" formControlName="luogo"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item class="text10">
+           <ion-icon name="time" slot="start"></ion-icon>
+          // <ion-input placeholder="Date and Time"></ion-input>
+           <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" value="0000-00-00T00:00"></ion-datetime>
+       </ion-item>-->
+
+
+
+      <ion-item class="ion-padding-end ion-align-items-start" >
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
+        <ion-label position="floating" class="text08"></ion-label>
+        <ion-textarea placeholder="Inserisci una descrizione" formControlName="descrizione" maxlength="100"></ion-textarea>
+      </ion-item>
+
+      <ion-item class="ion-padding-end ion-align-items-start" >
+        <ion-label>Data </ion-label>
+        <ion-datetime  placeholder="Seleziona"
+                       display-format="DD MMM YYYY, HH:mm"
+                       formControlName="data_ora"
+                       value="Seleziona"
+                       min="2019-11-01" max="2030-12-01"></ion-datetime>
+      </ion-item>
+
+
+
+      <ion-list>
+        <ion-item>
+          <ion-label>Tipo</ion-label>
+          <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
+            <ion-select-option value="volley"> Volley </ion-select-option>
+            <ion-select-option value="beach">Beach</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+    </ion-list>
+  </form>
+
+  <div margin-top="40px" class="ion-padding-top">
+    <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()"  tappable>
+      <ion-icon name="log-in" class="ion-padding-end" ></ion-icon>
+      CREA PARTITA
+    </ion-button>
+  </div>
+</ion-content>

@@ -14,8 +14,14 @@ const routes: Routes = [
     },
     {
         path: 'tabs',
-        loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),  canActivateChild: [AuthGuard]
+        loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule), canActivateChild: [AuthGuard]
     },
+    {
+        path: 'nuova-partita',
+        loadChildren: () => import('./pages/nuova-partita/nuova-partita.module').then(m => m.NuovaPartitaPageModule),
+        canActivate: [AuthGuard]
+    },
+
 
 ];
 

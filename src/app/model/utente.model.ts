@@ -1,12 +1,12 @@
 import {TipologiaRuolo} from './tipologiaRuolo.model';
 
 export class Utente {
-    id: bigint;
+    id: number;
     nome: string;
     cognome: string;
     email: string;
     password: string;
-   ruolo: TipologiaRuolo;
+    ruolo: TipologiaRuolo;
     partite_totali: number;
     telefono: string;
     descrizione: string;

@@ -20,7 +20,8 @@
   "OPPOSTO": "Opposite",
   "MARTELLO": "Wing-spiker",
   "CONFERMA_REGISTRAZIONE_BOTTONE": "CONFIRM REGISTRATION",
-  "PARTITE_PAGE": "Matches",
+  "PARTITE_TITOLO": "Matches",
   "LOGOUT": "Logout",
-  "IMPOSTAZIONI": "Settings"
+  "IMPOSTAZIONI": "Settings",
+  "NUOVA_PARTITA_TITOLO": "New Match"
 }
