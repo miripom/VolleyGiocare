@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, LoadingController, NavController} from '@ionic/angular';
 import {LoginAccount, UtenteService} from '../../services/utente.service';
-import {HttpErrorResponse} from '@angular/common/http';
+
 
 @Component({
     selector: 'app-login',
@@ -50,16 +50,11 @@ export class LoginPage implements OnInit {
 
         const loginAccount: LoginAccount = this.loginFormModel.value;
         this.utenteService.login(loginAccount).subscribe(res => {
-                this.loginFormModel.reset();
-                this.utenteService.getUtente().subscribe();
-                this.navController.navigateRoot('/tabs/partite');
-            },
-            (err: HttpErrorResponse) => {
-                if (err.status === 401) {
-                    console.error('login request error: ' + err.status);
-                    this.showLoginError();
-                }
-            });
+            this.loginFormModel.reset();
+            this.utenteService.getUtente().subscribe();
+            this.navController.navigateRoot('/tabs/partite');
+        });
+
         this.navController.navigateRoot('/tabs');
 
     }

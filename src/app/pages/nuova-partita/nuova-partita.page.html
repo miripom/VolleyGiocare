@@ -40,7 +40,7 @@
         <ion-datetime  placeholder="Seleziona"
                        display-format="DD MMM YYYY, HH:mm"
                        formControlName="data_ora"
-                       min="2020-01-01" max="2030-12-01"></ion-datetime>
+                       min="{{minDate}}" max="2030-12-01"></ion-datetime>
       </ion-item>
 
 
@@ -50,8 +50,7 @@
         <ion-item>
           <ion-label>Tipo</ion-label>
           <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
-            <ion-select-option value="volley"> Volley </ion-select-option>
-            <ion-select-option value="beach">Beach</ion-select-option>
+            <ion-select-option *ngFor="let t of tipoPartita" [value]="t"> {{t}} </ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>

@@ -4,6 +4,8 @@ import {Partita} from '../../model/partita.model';
 import {PartitaService} from '../../services/partita.service';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {TipologiaPartita} from '../../model/tipologiaPartita.model';
 
 
 @Component({
@@ -14,17 +16,28 @@ import {UtenteService} from '../../services/utente.service';
 export class NuovaPartitaPage implements OnInit {
     private newMatchFormModel: FormGroup;
     private utente = new Utente();
+    private tipoPartita;
+    private minDate = new Date().toISOString();
 
 
-    constructor(private formBuilder: FormBuilder, private partitaService: PartitaService, private utenteService: UtenteService) {
+    constructor(private formBuilder: FormBuilder,
+                private partitaService: PartitaService,
+                private utenteService: UtenteService) {
     }
 
     ngOnInit() {
 
         this.utenteService.getUtente().subscribe(res => {
-                this.utente = res;
-            }
-        );
+            this.utente = res;
+        });
+
+        this.partitaService.tipoPartita().subscribe(res => {
+            this.tipoPartita = res;
+            console.log(this.tipoPartita);
+
+
+        });
+
 
         this.newMatchFormModel = this.formBuilder.group({
             titolo: ['', Validators.compose([
