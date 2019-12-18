@@ -16,7 +16,7 @@ import {TranslateModule} from '@ngx-translate/core';
         IonicModule,
         NuovaPartitaPageRoutingModule,
         ReactiveFormsModule,
-        TranslateModule
+        TranslateModule.forChild()
     ],
   declarations: [NuovaPartitaPage]
 })

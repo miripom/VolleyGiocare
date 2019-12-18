@@ -4,8 +4,9 @@ import {Partita} from '../../model/partita.model';
 import {PartitaService} from '../../services/partita.service';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
-import {BehaviorSubject, Observable} from 'rxjs';
 import {TipologiaPartita} from '../../model/tipologiaPartita.model';
+import {Observable} from 'rxjs';
+import {NavController} from '@ionic/angular';
 
 
 @Component({
@@ -16,27 +17,19 @@ import {TipologiaPartita} from '../../model/tipologiaPartita.model';
 export class NuovaPartitaPage implements OnInit {
     private newMatchFormModel: FormGroup;
     private utente = new Utente();
-    private tipoPartita;
+    private tipoPartita: Observable<TipologiaPartita[]>;
     private minDate = new Date().toISOString();
 
 
     constructor(private formBuilder: FormBuilder,
                 private partitaService: PartitaService,
-                private utenteService: UtenteService) {
+                private utenteService: UtenteService,
+                private navController: NavController) {
     }
 
     ngOnInit() {
 
-        this.utenteService.getUtente().subscribe(res => {
-            this.utente = res;
-        });
-
-        this.partitaService.tipoPartita().subscribe(res => {
-            this.tipoPartita = res;
-            console.log(this.tipoPartita);
-
-
-        });
+        this.tipoPartita = this.partitaService.tipoPartita();
 
 
         this.newMatchFormModel = this.formBuilder.group({
@@ -63,12 +56,16 @@ export class NuovaPartitaPage implements OnInit {
     }
 
     onCreateNewMatch() {
+        this.utenteService.getUtente().subscribe(res => {
+            this.utente = res;
+        });
         this.newMatchFormModel.patchValue({organizzatore: this.utente.id});
         const partita: Partita = this.newMatchFormModel.value;
         console.table(partita);
 
         this.partitaService.createPartita(partita).subscribe();
         this.newMatchFormModel.reset();
+        this.navController.navigateRoot('/tabs/partite');
     }
 
 }

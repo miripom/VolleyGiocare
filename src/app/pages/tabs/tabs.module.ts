@@ -25,6 +25,17 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'nuova-partita',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../nuova-partita/nuova-partita.module').then(m => m.NuovaPartitaPageModule),
+
+                    }
+                    ,
+                ]
+            },
+            {
                 path: '',
                 redirectTo: '/tabs/partite',
                 pathMatch: 'full'

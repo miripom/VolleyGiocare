@@ -44,13 +44,11 @@
       </ion-item>
 
 
- <!-- DA SISTEMARE DINAMICAMENTE-->
-
       <ion-list>
         <ion-item>
           <ion-label>Tipo</ion-label>
           <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
-            <ion-select-option *ngFor="let t of tipoPartita" [value]="t"> {{t}} </ion-select-option>
+            <ion-select-option *ngFor="let t of tipoPartita|async" [value]="t.nome_tipologia"> {{t.nome_tipologia}} </ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
