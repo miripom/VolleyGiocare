@@ -27,7 +27,6 @@ export class TokenInterceptor implements HttpInterceptor {
             });
             return next.handle(authReq).pipe(
                 catchError(err => {
-                    this.showError(err);
                     return EMPTY;
                 })
             );
@@ -37,22 +36,5 @@ export class TokenInterceptor implements HttpInterceptor {
 
     }
 
-    async showError(err: HttpErrorResponse) {
-        const errorMessage = `Status: ${err.status}, Message: ${err.message}`;
 
-        const alert = await this.alertController.create({
-            header: 'Errore',
-            message: errorMessage,
-            buttons: [
-                {
-                    text: 'OK',
-                    handler: () => {
-                        this.navController.navigateRoot('login');
-                    }
-                }
-            ]
-        });
-
-        await alert.present();
-    }
 }

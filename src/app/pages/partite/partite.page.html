@@ -7,22 +7,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-searchbar class="ion-padding-top"  animated="true" autocorrect="on" ></ion-searchbar>
 
+  <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown"
+                           refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
 
-  <ion-list>
-    <ion-card class="back ion-margin" >
+ <ion-list>
+    <ion-card class="back ion-margin" *ngFor="let p of (partite$ |async) |keyvalue" >
       <ion-card-header>
-        <ion-card-subtitle>  <div ><ion-icon name="person" ></ion-icon> Ciao </div> </ion-card-subtitle>
-        <ion-card-title> Titolo </ion-card-title>
+        <ion-card-subtitle *ngFor="let obj of p.value.id_organizzatore" > <div ><ion-icon name="person" ></ion-icon>{{" " + obj['nome'] + " " + obj['cognome']}}</div> </ion-card-subtitle>
+        <ion-card-title>{{p.value.titolo}}</ion-card-title>
       </ion-card-header>
 
-      <ion-card-content>
-        data e ora
+    <ion-card-content>
+        {{(p.value.data_ora| date:'dd/MM/yyyy' )}}
         <ion-row class="ion-no-padding">
           <ion-col class="ion-text-left ion-padding-start=30px">
-            <ion-button class="ion-float-end" color="primary" icon-start size="small" routerDirection="forward" >
+            <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/dettaglio-partita', p.value.id]" routerDirection="forward" >
               <ion-icon name='create'></ion-icon>
               {{'DETTAGLIO_PARTITA' | translate}}
             </ion-button>
@@ -33,11 +38,12 @@
     </ion-card>
   </ion-list>
 
-  <!-- fab placed to the top end -->
 
+  <!-- fab placed to the top end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="nuovaPartita()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>

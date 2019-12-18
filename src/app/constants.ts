@@ -16,7 +16,10 @@ export const URL = {
     LOGIN: URL_BASE + '/auth/login',
     NUOVAPARTITA: URL_BASE + '/newMatch',
     TIPOLOGIAPARTITA: URL_BASE + '/match_types',
-    RUOLOGIOCATORE: URL_BASE + '/role_types'
+    RUOLOGIOCATORE: URL_BASE + '/role_types',
+    PARTITE: URL_BASE + '/matches',
+    PARTECIPAZIONEORG: URL_BASE + '/partecipaOrg',
+    DETTAGLIOPARTITA: URL_BASE + '/matchD'
 
 
 

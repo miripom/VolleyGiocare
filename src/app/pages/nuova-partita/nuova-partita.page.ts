@@ -63,9 +63,13 @@ export class NuovaPartitaPage implements OnInit {
         const partita: Partita = this.newMatchFormModel.value;
         console.table(partita);
 
-        this.partitaService.createPartita(partita).subscribe();
+        this.partitaService.createPartita(partita).subscribe(() => {
+            this.partitaService.lista();
+        });
         this.newMatchFormModel.reset();
-        this.navController.navigateRoot('/tabs/partite');
+        this.navController.navigateRoot('/tabs/partite').then(() => {
+            this.partitaService.partecipazioneOrg().subscribe();
+        });
     }
 
 }

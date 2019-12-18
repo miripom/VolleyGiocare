@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">{{'DETTAGLIO_PARTITA_TITOLO' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/partite" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="(partita$ |async) as p">
+    <ion-card-header>
+      <ion-card-title color="dark"> Titolo: </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      Descrizione: {{p['details'][0].descrizione}}
+<br>
+      Numero giocatori: {{p['details'][0].numero_giocatori}}
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+ <!-- <div class="dettagli" >
+    <ion-button *ngIf="m.organizzatore == this.idG" icon-left size="medium" expand="full" shape="round" color="primary" (click)="onDelete()"  tappable>
+      <ion-icon name="heart"></ion-icon>
+      Elimina partita
+    </ion-button>
+
+    <ion-button *ngIf="m.organizzatore != this.idG && this.partecipa <=0 && m.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round" color="primary" (click)="onPartecipa()"  tappable>
+      <ion-icon name="heart"></ion-icon>
+      Partecipa
+    </ion-button>
+
+
+    <ion-button *ngIf="this.partecipa > 0 && m.organizzatore != this.idG" icon-left size="medium" expand="full" shape="round" color="primary"  (click)="removeP()"  tappable>
+      <ion-icon ></ion-icon>
+      Rimuovi partecipazione
+    </ion-button>
+
+    <ion-button *ngIf="m.numero_giocatori<=0 && m.organizzatore != this.idG" icon-left size="medium" expand="full" shape="round" color="primary"   tappable>
+      <ion-icon ></ion-icon>
+      Non ci sono più posti
+    </ion-button>
+  </div> -->
+
+
+
+</ion-content>
