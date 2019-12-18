@@ -5,6 +5,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {UtenteService} from '../../services/utente.service';
 import {Utente} from '../../model/utente.model';
 import {TipologiaRuolo} from '../../model/tipologiaRuolo.model';
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-registrazione',
@@ -13,6 +14,7 @@ import {TipologiaRuolo} from '../../model/tipologiaRuolo.model';
 })
 export class RegistrazionePage implements OnInit {
     private signUpFormModel: FormGroup;
+    private ruolo: Observable<TipologiaRuolo[]>;
 
     constructor(private navController: NavController,
                 private formBuilder: FormBuilder,
@@ -22,6 +24,8 @@ export class RegistrazionePage implements OnInit {
     }
 
     ngOnInit() {
+        this.ruolo = this.utenteService.ruoloGiocatore();
+
         this.signUpFormModel = this.formBuilder.group({
             nome: ['', Validators.compose([
                 Validators.required

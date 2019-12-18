@@ -15,7 +15,9 @@ export const URL = {
     SIGNUP: URL_BASE + '/auth/register',
     LOGIN: URL_BASE + '/auth/login',
     NUOVAPARTITA: URL_BASE + '/newMatch',
-    TIPOLOGIAPARTITA: URL_BASE + '/match_types'
+    TIPOLOGIAPARTITA: URL_BASE + '/match_types',
+    RUOLOGIOCATORE: URL_BASE + '/role_types'
+
 
 
 };

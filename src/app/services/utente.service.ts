@@ -6,6 +6,7 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {TipologiaRuolo} from "../model/tipologiaRuolo.model";
 
 
 export interface LoginAccount {
@@ -94,6 +95,10 @@ export class UtenteService {
             ));
 
 
+    }
+
+    ruoloGiocatore(): Observable<TipologiaRuolo[]>{
+        return this.http.get<TipologiaRuolo[]>(URL.RUOLOGIOCATORE);
     }
 
 

@@ -41,11 +41,7 @@
       <ion-item>
         <ion-label>{{'RUOLO_PREFERITO' | translate}}</ion-label>
         <ion-select placeholder="{{'SELEZIONA' | translate}}" formControlName="ruolo">
-          <ion-select-option value="palleggiatore">{{'PALLEGGIATORE' | translate}}</ion-select-option>
-          <ion-select-option value="libero">{{'LIBERO' | translate}}</ion-select-option>
-          <ion-select-option value="martello">{{'MARTELLO' | translate}}</ion-select-option>
-          <ion-select-option value="centrale">{{'CENTRALE' | translate}}</ion-select-option>
-          <ion-select-option value="opposto">{{'OPPOSTO' | translate}}</ion-select-option>
+          <ion-select-option *ngFor="let r of ruolo | async " [value]="r.nome_ruolo">{{r.nome_ruolo.toUpperCase() | translate}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
