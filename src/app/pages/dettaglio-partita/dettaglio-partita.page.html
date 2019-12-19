@@ -11,7 +11,7 @@
 
   <ion-card *ngIf="(partita$ |async) as p">
     <ion-card-header>
-      <ion-card-title color="dark"> Titolo: </ion-card-title>
+      <ion-card-title color="dark"> Titolo: {{p['details'][0].titolo}} </ion-card-title>
     </ion-card-header>
     <ion-card-content>
 

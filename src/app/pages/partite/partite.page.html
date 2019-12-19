@@ -17,7 +17,7 @@
   </ion-refresher>
 
  <ion-list>
-    <ion-card class="back ion-margin" *ngFor="let p of (partite$ |async) |keyvalue" >
+    <ion-card class="back ion-margin cards" *ngFor="let p of (partite$ |async) |keyvalue" >
       <ion-card-header>
         <ion-card-subtitle *ngFor="let obj of p.value.id_organizzatore" > <div ><ion-icon name="person" ></ion-icon>{{" " + obj['nome'] + " " + obj['cognome']}}</div> </ion-card-subtitle>
         <ion-card-title>{{p.value.titolo}}</ion-card-title>

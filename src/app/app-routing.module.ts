@@ -21,6 +21,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dettaglio-partita/dettaglio-partita.module').then( m => m.DettaglioPartitaPageModule),
       canActivate: [AuthGuard]
   },
+    {
+        path: 'nuova-partita',
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./pages/nuova-partita/nuova-partita.module').then(m => m.NuovaPartitaPageModule),
+                canActivate: [AuthGuard]
+
+            },
+        ]
+    },
 
 
 

@@ -35,6 +35,6 @@ export class PartitePage implements OnInit {
     }
 
     nuovaPartita() {
-        this.nav.navigateRoot('tabs/nuova-partita');
+        this.nav.navigateRoot('/nuova-partita');
     }
 }
