@@ -27,5 +27,6 @@
   "NUOVA_PARTITA_TITOLO": "New Match",
   "DATA_ORA": "Date",
   "SELECT": "Select",
-  "DETTAGLIO_PARTITA": "Match Detail"
+  "DETTAGLIO_PARTITA": "Match Detail",
+  "LOGOUT_MENU": "Logout"
 }

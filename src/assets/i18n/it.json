@@ -29,5 +29,6 @@
 
   "DATA_ORA": "Data e Ora",
   "SELECT": "Seleziona",
-  "DETTAGLIO_PARTITA": "Dettaglio Partita"
+  "DETTAGLIO_PARTITA": "Dettaglio Partita",
+  "LOGOUT_MENU": "Logout"
 }

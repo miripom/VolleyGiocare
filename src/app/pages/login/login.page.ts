@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertController, LoadingController, NavController} from '@ionic/angular';
 import {LoginAccount, UtenteService} from '../../services/utente.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 
 @Component({
@@ -21,15 +22,17 @@ export class LoginPage implements OnInit {
 
     }
 
+
     ngOnInit() {
         this.loginFormModel = this.formBuilder.group({
             email: ['', Validators.compose([
-                Validators.required
+                Validators.required, Validators.email
             ])],
             password: ['', Validators.compose([
                 Validators.required
             ])]
         });
+
     }
 
     onRegister() {
@@ -37,23 +40,19 @@ export class LoginPage implements OnInit {
     }
 
     onSignIn() {
-        this.loadingCtrl.create({
-            message: 'Autenticazione in corso...'
-        }).then((overlay) => {
-            this.loading = overlay;
-            this.loading.present();
-        });
-
-        setTimeout(() => {
-            this.loading.dismiss();
-        }, 2000);
 
         const loginAccount: LoginAccount = this.loginFormModel.value;
         this.utenteService.login(loginAccount).subscribe(res => {
             this.loginFormModel.reset();
             this.utenteService.getUtente().subscribe();
             this.navController.navigateRoot('/tabs/partite');
-        });
+        },
+        (err: HttpErrorResponse) => {
+            if (err.status === 401) {
+                console.error('login request error: ' + err.status);
+                this.showLoginError();
+            }
+            });
 
         this.navController.navigateRoot('/tabs');
 
@@ -68,6 +67,7 @@ export class LoginPage implements OnInit {
 
         await alert.present();
     }
+
 
 
 }
