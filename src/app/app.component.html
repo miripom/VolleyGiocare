@@ -9,11 +9,12 @@
           </ion-avatar>
 
 
-          <ion-text class="ion-text-center text10 ion-padding-start ion-margin-start"  color="light"  slot="start">
+          <ion-text class="ion-text-center text10 ion-margin-start"  color="light"  slot="start">
            {{utente.nome + " " + utente.cognome}}
           </ion-text>
+
           <ion-menu-toggle auto-hide="false">
-            <ion-button fill="solid" size="small" color="light" (click)="logout()">
+            <ion-button fill="solid" size="small" color="light" shape="round" (click)="logout()">
               <ion-icon name="log-out"></ion-icon>{{'LOGOUT_MENU' | translate}}</ion-button>
           </ion-menu-toggle>
 

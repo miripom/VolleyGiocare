@@ -1,65 +1,68 @@
 <ion-header>
-  <ion-toolbar color="primary" >
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="tabs/partite"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">{{'NUOVA_PARTITA_TITOLO' | translate}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="tabs/partite"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{'NUOVA_PARTITA_TITOLO' | translate}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="animated fadeIn login auth-page ion-padding">
 
-  <form [formGroup]="newMatchFormModel" class="list-form">
-    <ion-list>
+    <form [formGroup]="newMatchFormModel" class="list-form">
+        <ion-list>
 
-      <ion-item class="ion-padding-end ion-align-items-start" >
-        <ion-icon name="bookmark" slot="start"></ion-icon>
-        <ion-input placeholder="Title" formControlName="titolo"></ion-input>
-      </ion-item>
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="bookmark" slot="start"></ion-icon>
+                <ion-input placeholder="Title" formControlName="titolo"></ion-input>
+            </ion-item>
 
-      <ion-item class="ion-padding-end ion-align-items-start" >
-        <ion-icon name="pin" slot="start"></ion-icon>
-        <ion-input placeholder="Location" formControlName="luogo"></ion-input>
-      </ion-item>
-
-
-      <ion-item class="ion-padding-end ion-align-items-start" >
-        <ion-icon name="person" slot="start"></ion-icon>
-        <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti"></ion-input>
-      </ion-item>
-
-      <ion-item >
-        <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
-        <ion-label position="floating" class="text08"></ion-label>
-        <ion-textarea placeholder="Inserisci una descrizione" formControlName="descrizione" maxlength="100"></ion-textarea>
-      </ion-item>
-
-      <ion-item class="ion-padding-end ion-align-items-start" >
-        <ion-label>{{'DATA_ORA' | translate}} </ion-label>
-        <ion-datetime  placeholder="Seleziona"
-                       display-format="DD MMM YYYY, HH:mm"
-                       formControlName="data_ora"
-                       min="{{minDate}}" max="2030-12-01"></ion-datetime>
-      </ion-item>
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-input placeholder="Location" formControlName="luogo"></ion-input>
+            </ion-item>
 
 
-      <ion-list>
-        <ion-item>
-          <ion-label>Tipo</ion-label>
-          <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
-            <ion-select-option *ngFor="let t of tipoPartita|async" [value]="t.nome_tipologia"> {{t.nome_tipologia}} </ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
+                <ion-label position="floating" class="text08"></ion-label>
+                <ion-textarea placeholder="Inserisci una descrizione" formControlName="descrizione"
+                              maxlength="100"></ion-textarea>
+            </ion-item>
+
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-label>{{'DATA_ORA' | translate}} </ion-label>
+                <ion-datetime placeholder="Seleziona"
+                              display-format="DD MMM YYYY, HH:mm"
+                              formControlName="data_ora"
+                              min="{{minDate}}" max="2030-12-01"></ion-datetime>
+            </ion-item>
 
 
-    </ion-list>
-  </form>
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{'TIPOLOGIA_PARTITA' | translate}}</ion-label>
+                    <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
+                        <ion-select-option *ngFor="let t of tipoPartita|async"
+                                           [value]="t.nome_tipologia"> {{t.nome_tipologia}} </ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
 
-  <div class="ion-padding-top ion-margin-top">
-    <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()"  tappable>
-      <ion-icon slot="start" name="checkmark"></ion-icon>      CREA PARTITA
-    </ion-button>
-  </div>
+
+        </ion-list>
+    </form>
+
+    <div class="ion-padding-top ion-margin-top">
+        <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()" tappable>
+            <ion-icon slot="start" name="checkmark"></ion-icon>
+            {{"CREA_PARTITA"}}
+        </ion-button>
+    </div>
 </ion-content>

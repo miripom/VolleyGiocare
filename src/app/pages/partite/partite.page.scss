@@ -1,3 +1,22 @@
-.cards{
-  border-left: 3px solid orangered;
+.cards {
+  border-left: 3px solid #d9ba09;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.bordo{
+  border: solid;
+  border-radius: 30px;
+  border-color: #000000;
+}
+
+.avatar{
+  --border-radius: 10%;
+  width: 30px;
+  height: 30px;
+}
+
+.boo{
+  border-radius: 30px;
+  border-color: #1e2023;
+  border: solid;
 }
