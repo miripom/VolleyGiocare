@@ -1,10 +1,11 @@
 {
+  "PROFILO_TITOLO": "Profilo",
   "DETTAGLIO_PARTITA_TITOLO": "Dettaglio Partita",
   "LOGIN_TITOLO": "Login",
   "REGISTRAZIONE_TITOLO": "Registrazione",
   "PARTITE_TITOLO": "Partite",
   "NUOVA_PARTITA_TITOLO": "Nuova Partita",
-
+  "MIE_PARTITE_TITOLO": "Mie Partite",
   "EMAIL": "Email",
   "PASSWORD": "Password",
   "PASSWORD_RICHIESTA": "Password richiesta",
@@ -23,12 +24,17 @@
   "OPPOSTO": "Opposto",
   "MARTELLO": "Martello",
   "CONFERMA_REGISTRAZIONE_BOTTONE": "CONFERMA REGISTRAZIONE",
-
+  "HOME": "Home",
   "LOGOUT": "Logout",
   "IMPOSTAZIONI": "Impostazioni",
-
+  "MODIFICA_DESCRIZIONE_BOTTONE": "Aggiorna Descrizione",
   "DATA_ORA": "Data e Ora",
   "SELECT": "Seleziona",
   "DETTAGLIO_PARTITA": "Dettaglio Partita",
-  "LOGOUT_MENU": "Logout"
+  "LOGOUT_MENU": "Logout",
+  "MIE_PARTITE": "Mie Partite",
+  "PARTITE_DA_GIOCARE": "Partite da giocare",
+  "PARTITE_TERMINATE": "Partite terminate",
+  "PROFILO": "Profilo",
+  "PARTITE_GIOCATE": "Partite Giocate"
 }

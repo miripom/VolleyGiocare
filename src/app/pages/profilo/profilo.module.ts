@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MiePartitePageRoutingModule } from './mie-partite-routing.module';
+import { ProfiloPageRoutingModule } from './profilo-routing.module';
 
-import { MiePartitePage } from './mie-partite.page';
+import { ProfiloPage } from './profilo.page';
 import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
@@ -14,9 +14,9 @@ import {TranslateModule} from "@ngx-translate/core";
         CommonModule,
         FormsModule,
         IonicModule,
-        MiePartitePageRoutingModule,
+        ProfiloPageRoutingModule,
         TranslateModule
     ],
-  declarations: [MiePartitePage]
+  declarations: [ProfiloPage]
 })
-export class MiePartitePageModule {}
+export class ProfiloPageModule {}

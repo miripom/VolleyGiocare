@@ -11,13 +11,13 @@
 
   <ion-card *ngIf="(partita$ |async) as p">
     <ion-card-header>
-      <ion-card-title color="dark"> Titolo: {{p['details'][0].titolo}} </ion-card-title>
+      <ion-card-title color="dark"> Titolo: {{p['details'].titolo}} </ion-card-title>
     </ion-card-header>
     <ion-card-content>
 
-      Descrizione: {{p['details'][0].descrizione}}
+      Descrizione: {{p['details'].descrizione}}
 <br>
-      Numero giocatori: {{p['details'][0].numero_giocatori}}
+      Numero giocatori: {{p['details'].numero_giocatori}}
     </ion-card-content>
   </ion-card>
 

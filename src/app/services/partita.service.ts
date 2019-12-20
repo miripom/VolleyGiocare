@@ -36,4 +36,11 @@ export class PartitaService {
         return this.http.get(URL.PARTECIPAZIONEORG);
     }
 
+    miePartite(): Observable<Partita[]> {
+        return this.http.get<Partita[]>(URL.MIEPARTITE);
+    }
+
+    terminate(): Observable<Partita[]> {
+        return this.http.get<Partita[]>(URL.PARTITETERMINATE);
+    }
 }

@@ -31,15 +31,7 @@ const routes: Routes = [
 
             },
         ]
-    },  {
-    path: 'mie-partite',
-    loadChildren: () => import('./pages/mie-partite/mie-partite.module').then( m => m.MiePartitePageModule)
-  },
-
-
-
-
-];
+    }];
 
 @NgModule({
     imports: [

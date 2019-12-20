@@ -20,6 +20,9 @@ export class PartitePage implements OnInit {
 
     ionViewWillEnter() {
         this.partite$ = this.partitaService.lista();
+        this.partite$.subscribe(res => {
+            console.table(res);
+        });
     }
 
     ngOnInit() {

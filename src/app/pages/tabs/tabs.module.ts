@@ -24,7 +24,24 @@ const routes: Routes = [
                     ,
                 ]
             },
-
+            {
+                path: 'mie-partite',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../mie-partite/mie-partite.module').then(m => m.MiePartitePageModule)
+                    },
+                ]
+            },
+            {
+                path: 'profilo',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../profilo/profilo.module').then(m => m.ProfiloPageModule)
+                    }
+                ]
+            },
             {
                 path: '',
                 redirectTo: '/tabs/partite',

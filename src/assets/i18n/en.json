@@ -1,5 +1,8 @@
 {
+  "PROFILO_TITOLO": "Profile",
   "DETTAGLIO_PARTITA_TITOLO": "Match Detail",
+  "MIE_PARTITE_TITOLO": "My Matches",
+  "HOME": "Home",
   "LOGIN_TITOLO": "Login",
   "EMAIL": "Email",
   "PASSWORD": "Password",
@@ -7,7 +10,6 @@
   "EMAIL_RICHIESTA": "Email Required",
   "LOGIN_BOTTONE": "SIGN IN",
   "REGISTRAZIONE_BOTTONE": "SIGN UP",
-
   "REGISTRAZIONE_TITOLO": "Sign Up",
   "RUOLO_PREFERITO": "Favourite Role",
   "NOME": "Name",
@@ -28,5 +30,12 @@
   "DATA_ORA": "Date",
   "SELECT": "Select",
   "DETTAGLIO_PARTITA": "Match Detail",
-  "LOGOUT_MENU": "Logout"
+  "LOGOUT_MENU": "Logout",
+  "MIE_PARTITE": "My Matches",
+  "PARTITE_DA_GIOCARE": "Matches to play",
+  "PARTITE_TERMINATE": "Matches ended",
+  "PROFILO": "Profile",
+  "MODIFICA_DESCRIZIONE_BOTTONE": "Update Description",
+  "PARTITE_GIOCATE": "Total matches"
+
 }

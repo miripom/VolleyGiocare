@@ -19,7 +19,10 @@ export const URL = {
     RUOLOGIOCATORE: URL_BASE + '/role_types',
     PARTITE: URL_BASE + '/matches',
     PARTECIPAZIONEORG: URL_BASE + '/partecipaOrg',
-    DETTAGLIOPARTITA: URL_BASE + '/matchD'
+    DETTAGLIOPARTITA: URL_BASE + '/matchD',
+    MIEPARTITE: URL_BASE + '/miepartite',
+    PARTITETERMINATE: URL_BASE + '/terminated',
+    AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription'
 
 
 

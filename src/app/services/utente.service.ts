@@ -101,5 +101,13 @@ export class UtenteService {
         return this.http.get<TipologiaRuolo[]>(URL.RUOLOGIOCATORE);
     }
 
+    aggiungiDescrizione(descrizione) {
+        const params = new HttpParams()
+            .set('descrizione', descrizione);
+
+        return this.http.post<Utente>(URL.AGGIUNGIDESCRIZIONE, params, {observe: 'response'});
+    }
+
+
 
 }
