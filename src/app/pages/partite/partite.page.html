@@ -20,7 +20,7 @@
         <ion-card class="back ion-margin cards " *ngFor="let p of partite$ |async">
             <ion-card-header>
 
-                <ion-card-title class="text-dark">
+                <ion-card-title class="text-dark ion-text-center">
                     <ion-icon name="clipboard"></ion-icon>
                     {{p.titolo}}
                 </ion-card-title>
@@ -30,7 +30,7 @@
 
             </ion-card-header>
 
-            <ion-card-content>
+            <ion-card-content class="ion-text-center">
                 <ion-icon name="calendar" icon="left"></ion-icon>
                 {{(p.data_ora| date:'dd/MM/yyyy')}}
                 <ion-icon name="time" class="ion-padding-start"></ion-icon>

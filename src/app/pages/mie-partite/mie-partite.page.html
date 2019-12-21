@@ -1,93 +1,113 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">{{'MIE_PARTITE_TITOLO' | translate}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{'MIE_PARTITE_TITOLO' | translate}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-slides>
+    <ion-slides>
 
-    <ion-slide>
-      <div class="titolo">
-        <b>{{'PARTITE_DA_GIOCARE' | translate}}
-          <ion-icon name="arrow-dropright"></ion-icon> </b> </div>
-
-
-      <!--<ion-card *ngFor="let m of miepartite$|async" class="back ion-margin" >-->
-
-      <ion-list>
-        <ion-card class="back ion-margin cards " *ngFor="let m of miepartite$ |async">
-          <ion-card-header>
-
-            <ion-card-title class="text-dark">
-              <ion-icon name="clipboard"></ion-icon>
-              {{m.titolo}}
-            </ion-card-title>
-
-            <ion-card-subtitle>
-            </ion-card-subtitle>
-
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-icon name="calendar" icon="left"></ion-icon>
-            {{(m.data_ora| date:'dd/MM/yyyy')}}
-            <ion-icon name="time" class="ion-padding-start"></ion-icon>
-            {{m.data_ora|date: 'hh:mm'}}
-            <ion-icon name="globe" class="ion-padding-start"></ion-icon>
-            {{m.luogo}}
-            <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
-            <ion-row class="ion-no-padding">
-              <ion-col class="ion-text-left ion-padding-start=30px">
-                <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                {{"   " + m.id_organizzatore[0].nome + " " + m.id_organizzatore[0].cognome}}
-                <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary" size="small"
-                            [routerLink]="['/dettaglio-partita', m.id]" routerDirection="forward">
-                  <ion-icon slot="start" name='create'></ion-icon>
-                  <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-
-        </ion-card>
-      </ion-list>
+        <ion-slide>
+            <div class="titolo">
+                <b>{{'PARTITE_DA_GIOCARE' | translate}}
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </b></div>
 
 
-    </ion-slide>
+            <!--<ion-card *ngFor="let m of miepartite$|async" class="back ion-margin" >-->
 
-    <ion-slide>
-      <div class="titolo">
-        <ion-icon name="arrow-dropleft"></ion-icon>
-        <b>{{'PARTITE_TERMINATE' | translate}}
-        </b>
-      </div>
-      <ion-card *ngFor="let t of terminate$ | async" class="back ion-margin" >
-        <ion-card-header>
-          <ion-card-subtitle> <div ><ion-icon name="person" ></ion-icon>{{" " + t.id_organizzatore[0].nome + " " +t.id_organizzatore[0].cognome}}</div> </ion-card-subtitle>
-          <ion-card-title> {{t.titolo}} </ion-card-title>
-        </ion-card-header>
+            <ion-list>
+                <ion-card class="back cards " *ngFor="let m of miepartite$ |async">
+                    <ion-card-header>
 
-        <ion-card-content>
-          {{(t.data_ora | date:'dd/MM/yyyy' )}}
-          <ion-item-divider></ion-item-divider>
-          <ion-row class="ion-no-padding">
-            <ion-col class="ion-text-left ion-padding-start=30px">
-              <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/players', t.id]" routerDirection="forward" >
-                <ion-icon name='create'></ion-icon>
-                Lascia Feedback
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
+                        <ion-card-title class="text-dark">
+                            <ion-icon name="clipboard"></ion-icon>
+                            {{m.titolo}}
+                        </ion-card-title>
 
-      </ion-card>
-    </ion-slide>
+                        <ion-card-subtitle>
+                        </ion-card-subtitle>
+
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <ion-icon name="calendar" icon="left"></ion-icon>
+                        {{(m.data_ora| date:'dd/MM/yyyy')}}
+                        <ion-icon name="time" class="ion-padding-start"></ion-icon>
+                        {{m.data_ora|date: 'hh:mm'}}
+                        <ion-icon name="globe" class="ion-padding-start"></ion-icon>
+                        {{m.luogo}}
+                        <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
+                        <ion-row class="ion-no-padding">
+                            <ion-col class="ion-text-left ion-padding-start=30px">
+                                <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
+                                {{"   " + m.id_organizzatore[0].nome + " " + m.id_organizzatore[0].cognome}}
+                                <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary"
+                                            size="small"
+                                            [routerLink]="['/dettaglio-partita', m.id]" routerDirection="forward">
+                                    <ion-icon slot="start" name='create'></ion-icon>
+                                    <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+
+                </ion-card>
+            </ion-list>
 
 
-  </ion-slides>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="titolo">
+                <ion-icon name="arrow-dropleft"></ion-icon>
+                <b>{{'PARTITE_TERMINATE' | translate}}
+                </b>
+            </div>
+            <ion-list>
+                <ion-card class="back cardst " *ngFor="let t of terminate$ |async">
+                    <ion-card-header>
+
+                        <ion-card-title class="text-dark">
+                            <ion-icon name="clipboard"></ion-icon>
+                            {{t.titolo}}
+                        </ion-card-title>
+
+                        <ion-card-subtitle>
+                        </ion-card-subtitle>
+
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <ion-icon name="calendar" icon="left"></ion-icon>
+                        {{(t.data_ora| date:'dd/MM/yyyy')}}
+                        <ion-icon name="time" class="ion-padding-start"></ion-icon>
+                        {{t.data_ora|date: 'hh:mm'}}
+                        <ion-icon name="globe" class="ion-padding-start"></ion-icon>
+                        {{t.luogo}}
+                        <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
+                        <ion-row class="ion-no-padding">
+                            <ion-col class="ion-text-left ion-padding-start=30px">
+                                <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
+                                {{"   " + t.id_organizzatore[0].nome + " " + t.id_organizzatore[0].cognome}}
+                                <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary"
+                                            size="small"
+                                            [routerLink]="['/dettaglio-partita', t.id]" routerDirection="forward">
+                                    <ion-icon slot="start" name='create'></ion-icon>
+                                    <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+
+                </ion-card>
+            </ion-list>
+        </ion-slide>
+
+
+    </ion-slides>
 </ion-content>
