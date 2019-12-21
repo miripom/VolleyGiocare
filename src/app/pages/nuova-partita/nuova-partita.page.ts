@@ -6,7 +6,7 @@ import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
 import {TipologiaPartita} from '../../model/tipologiaPartita.model';
 import {Observable} from 'rxjs';
-import {NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 
 
 @Component({
@@ -24,7 +24,8 @@ export class NuovaPartitaPage implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private partitaService: PartitaService,
                 private utenteService: UtenteService,
-                private navController: NavController) {
+                private navController: NavController,
+                private alertController: AlertController) {
     }
 
     ngOnInit() {
@@ -68,6 +69,19 @@ export class NuovaPartitaPage implements OnInit {
         this.navController.navigateRoot('/tabs/partite').then(() => {
             this.partitaService.partecipazioneOrg().subscribe();
         });
+        this.presentAlert();
+    }
+
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Ottimo!',
+            message: 'Partita creata con successo!',
+            buttons: [{
+                text: 'Ok',
+                cssClass: 'primary'
+            }]
+        });
+        await alert.present();
     }
 
 }
