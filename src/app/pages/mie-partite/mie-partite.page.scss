@@ -2,10 +2,7 @@
   --ion-safe-area-top: 20px;
   --ion-safe-area-bottom: 22px;
 }
-ion-card {
-  border: 1px solid darkred;
-  border-radius: 10px;
-}
+
 .swiper-slide {
   display: block;
   color: #800517;
@@ -29,4 +26,15 @@ ion-slide > img {
 .fotos {
   height: 20px;
   width: 20px;
+}
+
+.cards {
+  border-left: 5px solid forestgreen;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.bordo{
+  border: solid;
+  border-radius: 30px;
+  border-color: #000000;
 }

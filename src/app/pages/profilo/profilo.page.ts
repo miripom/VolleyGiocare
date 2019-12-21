@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject} from 'rxjs';
 import {Utente} from '../../model/utente.model';
@@ -12,10 +12,8 @@ import {AlertController, IonInfiniteScroll, NavController} from '@ionic/angular'
 })
 export class ProfiloPage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
-    private utente = new Utente();
     private infiniteScroll: IonInfiniteScroll;
     private index = 0;
-    public lenght = 0;
     private i;
     uno = 0;
     due = 0;
@@ -56,14 +54,7 @@ export class ProfiloPage implements OnInit {
         this.numero = (this.index / this.i).toFixed(1);
         this.index = this.index / this.i;
 
-
         this.utente$ = this.utenteService.getUtente();
-        this.utente$.subscribe(res => {
-            this.utente = res;
-            console.table(res);
-        });
-
-
     }
 
     loadData(event) {

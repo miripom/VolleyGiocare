@@ -36,6 +36,13 @@
   "PARTITE_TERMINATE": "Matches ended",
   "PROFILO": "Profile",
   "MODIFICA_DESCRIZIONE_BOTTONE": "Update Description",
-  "PARTITE_GIOCATE": "Total matches"
+  "PARTITE_GIOCATE": "Total matches",
+
+  "DETTAGLIO_PARTITA": "Detail",
+  "LOGOUT_MENU": "Logout",
+  "TIPOLOGIA_PARTITA": "Type",
+  "CREA_PARTITA": "CREATE MATCH",
+  "IMPOSTAZIONI_TITOLO": "Settings",
+  "LINGUA" : "Language"
 
 }

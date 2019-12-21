@@ -1,62 +1,65 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">{{'PARTITE_TITOLO' | translate}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{'PARTITE_TITOLO' | translate}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <ion-searchbar class="ion-padding-top"  animated="true" autocorrect="on" ></ion-searchbar>
+<ion-content>
+    <ion-searchbar class="ion-padding-top" animated="true" autocorrect="on"></ion-searchbar>
 
-  <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown"
-                           refreshingSpinner="circles">
-    </ion-refresher-content>
-  </ion-refresher>
+    <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown"
+                               refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
 
- <ion-list>
-   <ion-card class="back ion-margin cards " *ngFor="let p of partite$ |async">
-      <ion-card-header>
+    <ion-list>
+        <ion-card class="back ion-margin cards " *ngFor="let p of partite$ |async">
+            <ion-card-header>
 
-          <ion-card-title class="ion-no-margin ion-no-padding">
-              <ion-item>
-              <ion-avatar slot="start" class="boo">
-                  <img src="../../../assets/images/martello.jpg">
-              </ion-avatar>
-              <ion-label>{{" " + p.id_organizzatore[0].nome + " " + p.id_organizzatore[0].cognome}}</ion-label>
-          </ion-item>
-          </ion-card-title>
+                <ion-card-title class="text-dark">
+                    <ion-icon name="clipboard"></ion-icon>
+                    {{p.titolo}}
+                </ion-card-title>
 
-        <ion-card-subtitle>
-        </ion-card-subtitle>
-      </ion-card-header>
+                <ion-card-subtitle>
+                </ion-card-subtitle>
 
-    <ion-card-content>
-        {{(p.data_ora| date:'dd/MM/yyyy' )}}
-        <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
-        <ion-row class="ion-no-padding">
-          <ion-col class="ion-text-left ion-padding-start=30px">
-            <ion-button class="ion-float-end bordo" expand="full" shape="round"  color="primary" size="small" [routerLink]="['/dettaglio-partita', p.id]" routerDirection="forward" >
-              <ion-icon slot="start" name='create'></ion-icon>
-             <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
+            </ion-card-header>
 
-    </ion-card>
+            <ion-card-content>
+                <ion-icon name="calendar" icon="left"></ion-icon>
+                {{(p.data_ora| date:'dd/MM/yyyy')}}
+                <ion-icon name="time" class="ion-padding-start"></ion-icon>
+                {{p.data_ora|date: 'hh:mm'}}
+                <ion-icon name="globe" class="ion-padding-start"></ion-icon>
+                {{p.luogo}}
+                <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
+                <ion-row class="ion-no-padding">
+                    <ion-col class="ion-text-left ion-padding-start=30px">
+                        <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
+                        {{"   " + p.id_organizzatore[0].nome + " " + p.id_organizzatore[0].cognome}}
+                        <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary" size="small"
+                                    [routerLink]="['/dettaglio-partita', p.id]" routerDirection="forward">
+                            <ion-icon slot="start" name='create'></ion-icon>
+                            <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+
+        </ion-card>
+    </ion-list>
 
 
-  </ion-list>
-
-
-  <!-- fab placed to the top end -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="bordo">
-    <ion-fab-button (click)="nuovaPartita()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <!-- fab placed to the top end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="bordo">
+        <ion-fab-button (click)="nuovaPartita()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
 </ion-content>

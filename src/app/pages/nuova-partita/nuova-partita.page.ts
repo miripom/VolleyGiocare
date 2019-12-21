@@ -31,7 +31,6 @@ export class NuovaPartitaPage implements OnInit {
 
         this.tipoPartita = this.partitaService.tipoPartita();
 
-
         this.newMatchFormModel = this.formBuilder.group({
             titolo: ['', Validators.compose([
                 Validators.required
@@ -61,7 +60,6 @@ export class NuovaPartitaPage implements OnInit {
         });
         this.newMatchFormModel.patchValue({organizzatore: this.utente.id});
         const partita: Partita = this.newMatchFormModel.value;
-        console.table(partita);
 
         this.partitaService.createPartita(partita).subscribe(() => {
             this.partitaService.lista();
