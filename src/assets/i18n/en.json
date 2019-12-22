@@ -43,6 +43,13 @@
   "TIPOLOGIA_PARTITA": "Type",
   "CREA_PARTITA": "CREATE MATCH",
   "IMPOSTAZIONI_TITOLO": "Settings",
-  "LINGUA" : "Language"
+  "LINGUA" : "Language",
+  "TITOLO": "Title : ",
+  "DATA": "Date : ",
+  "ORA": "Hours : ",
+  "LUOGO": "Place : ",
+  "DESCRIZIONE": "Description : ",
+  "PARTECIPA": "ENJOY",
+  "GIOCATORI_RICHIESTI" : "Players almost required"
 
 }

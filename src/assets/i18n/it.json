@@ -43,5 +43,12 @@
   "TIPOLOGIA_PARTITA": "Tipologia",
   "CREA_PARTITA": "CREA PARTITA",
   "IMPOSTAZIONI_TITOLO": "Impostazioni",
-  "LINGUA" : "Lingua"
+  "LINGUA" : "Lingua",
+  "TITOLO": "Titolo : ",
+  "DATA": "Data : ",
+  "ORA": "Ora : ",
+  "LUOGO": "Luogo : ",
+  "DESCRIZIONE" : "Descrizione : ",
+  "PARTECIPA": "PARTECIPA",
+  "GIOCATORI_RICHIESTI": "posti disponibli"
 }

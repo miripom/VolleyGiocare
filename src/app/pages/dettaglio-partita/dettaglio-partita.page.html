@@ -17,14 +17,14 @@
         <ion-item>
         <div>
           <ion-icon name="clipboard"></ion-icon>
-          <b>Titolo</b> :  {{p['details'].titolo}}
+          <b>{{'TITOLO' | translate}}</b>{{p['details'].titolo}}
         </div>
         </ion-item>
 
         <ion-item>
         <div class="ion-margin-top">
           <ion-icon name="calendar" icon="left"></ion-icon>
-          <b> Data :</b>
+          <b>{{'DATA' | translate}}</b>
           {{(p['details'].data_ora| date:'dd/MM/yyyy')}}
         </div>
         </ion-item>
@@ -32,7 +32,7 @@
         <ion-item>
         <div class="ion-margin-top">
           <ion-icon name="time" slot="start" icon="left"></ion-icon>
-          <b>Ora :</b>
+          <b>{{'ORA' | translate}}</b>
           {{(p['details'].data_ora| date:'hh:mm')}}
         </div>
         </ion-item>
@@ -40,7 +40,7 @@
         <ion-item>
         <div class="ion-margin-top">
           <ion-icon name="globe" slot="start" icon="left"></ion-icon>
-          <b>Luogo :</b>
+          <b>{{'LUOGO' | translate}}</b>
           {{p['details'].luogo}}
         </div>
         </ion-item>
@@ -49,7 +49,7 @@
         <ion-item>
         <div class="ion-margin-top">
           <ion-icon name="book" slot="start" icon="left"></ion-icon>
-          <b>Descrizione :</b>
+          <b>{{'DESCRIZIONE' | translate}}</b>
           {{p['details'].descrizione}}
         </div>
         </ion-item>
@@ -57,7 +57,7 @@
         <div class="ion-text-center"><ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
                          size="small">
           <ion-icon slot="start" name='create'></ion-icon>
-          <b> PARTECIPA</b>
+          <b> {{'PARTECIPA' | translate}}</b>
         </ion-button>
         </div>
       </ion-card-title>
@@ -67,7 +67,7 @@
       <ion-row class="ion-no-padding">
         <ion-col class="ion-text-left ion-padding-start=30px">
           <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-          {{"   " + p['details'].numero_giocatori}} posti disponibili
+          {{"   " + p['details'].numero_giocatori}} {{'GIOCATORI_RICHIESTI' | translate}}
         </ion-col>
 
 <ion-col></ion-col>
