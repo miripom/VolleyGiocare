@@ -11,7 +11,6 @@ import {PartitaService} from '../../services/partita.service';
 })
 export class DettaglioPartitaPage implements OnInit {
     private partita$: Observable<Partita>;
-    private partita = new Partita();
 
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService) {
@@ -22,9 +21,10 @@ export class DettaglioPartitaPage implements OnInit {
 
     ionViewWillEnter() {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-            this.partita$ =  this.partitaService.findById(parseInt(params.get('id'), 0));
+            this.partita$ = this.partitaService.findById(parseInt(params.get('id'), 0));
         });
-        this.partitaService.giocatori(parseInt(params.get('id'), 0));
+        this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+            this.partitaService.giocatori(parseInt(params.get('id'), 0));
+        });
     }
-
 }
