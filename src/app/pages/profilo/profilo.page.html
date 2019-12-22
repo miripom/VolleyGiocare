@@ -1,105 +1,128 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">{{'PROFILO_TITOLO' | translate}}</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">{{'PROFILO_TITOLO' | translate}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div>
-    <ion-item  class="animated fadeInUp ion-no-padding ">
-      <ion-avatar margin-start class="item-avatar">
-        <img src="../../../assets/images/martello.jpg" class="slot ion-margin-top">
-      </ion-avatar>
-      <ion-label class="ion-text-center text15">
-        <b>{{ utente$.getValue().nome + " " + utente$.getValue().cognome}}</b>
-        <p *ngIf="utente$.getValue().descrizione != null">{{utente$.getValue().descrizione}}</p>
-      </ion-label>
-    </ion-item>
-  </div>
-  <section>
-    <ion-button class="ion-float-end ion-text-center ion-no-margin ion-padding-end" size="small"  shape="round" color="primary" (click)="update()"  tappable>
-      <ion-icon name='create' slot="start" color="secondary"></ion-icon>
-      {{ 'MODIFICA_DESCRIZIONE_BOTTONE' | translate }}
-    </ion-button>
-  </section>
-
-  <ion-grid class="ion-margin ion-padding-top">
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-text  color="primary" class="text12"> <b>{{'RUOLO_PREFERITO' | translate}}</b> </ion-text>
-          <ion-chip class="ion-margin-top" outline color="success" slot="start">
-            <ion-avatar slot="start">
-              <img src="../../../assets/images/martello.jpg">
+    <div>
+        <ion-item class="animated fadeInUp ion-no-padding ">
+            <ion-avatar class="item-avatar ion-margin-start">
+                <img src="../../../assets/images/martello.jpg" class="slot ion-margin-top">
             </ion-avatar>
-            <ion-label ><b>{{utente$.getValue().ruolo.nome_ruolo}}</b></ion-label>
-          </ion-chip> </div>
-      </ion-col>
-      <ion-col>
-        <div class="ion-margin-start ion-padding-bottom">
-          <ion-text color="primary" class="text12"> <p text-center> <b>{{'PARTITE_GIOCATE' | translate}} </b></p> </ion-text></div>
-        <div class="ion-margin-start">
-          <ion-text class="text12"> <p class="ion-text-center ion-no-margin ion-no-padding"> {{utente$.getValue().partite_totali}} </p></ion-text>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <br><br>
-  <ion-label class="ion-margin-start" color="light"> <b> Valutazioni e recensioni</b></ion-label>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item lines="none">
-          <div margin-start="50px">
-            <p ion-text margin-start class="text30" >{{numero}}</p>
-            <ion-icon *ngIf="index==0" name="star-outline"></ion-icon><ion-icon *ngIf="index>0&&index<1" name="star-half"></ion-icon><ion-icon *ngIf="index>1||index==1" name="star"></ion-icon>
-            <ion-icon *ngIf="index<1" name="star-outline"></ion-icon><ion-icon *ngIf="index>1&&index<2" name="star-half"></ion-icon><ion-icon *ngIf="index>2||index==2" name="star"></ion-icon>
-            <ion-icon *ngIf="index<2" name="star-outline"></ion-icon><ion-icon *ngIf="index>2&&index<3" name="star-half"></ion-icon><ion-icon *ngIf="index>3||index==3" name="star"></ion-icon>
-            <ion-icon *ngIf="index<3" name="star-outline"></ion-icon><ion-icon *ngIf="index>3&&index<4" name="star-half"></ion-icon><ion-icon *ngIf="index>4||index==4" name="star"></ion-icon>
-            <ion-icon *ngIf="index<4" name="star-outline"></ion-icon><ion-icon *ngIf="index>4&&index<5" name="star-half"></ion-icon><ion-icon *ngIf="index>5||index==5" name="star"></ion-icon>
-            <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
-              <p class="text08" >recensioni: {{i}}</p>
-            </div>
-          </div>
+            <ion-label class="ion-text-center text15">
+                <b>{{ utente$.getValue().nome + " " + utente$.getValue().cognome}}</b>
+                <p *ngIf="utente$.getValue().descrizione != null">{{utente$.getValue().descrizione}}</p>
+            </ion-label>
         </ion-item>
-      </ion-col>
-      <ion-col>
-        <ol class="ion-no-padding">
-          <li value="5"> <ion-progress-bar [value]="cinque" color="light"></ion-progress-bar></li>
-          <li value="4"> <ion-progress-bar [value]="quattro" color="light"></ion-progress-bar></li>
-          <li value="3"> <ion-progress-bar [value]="tre" color="light"></ion-progress-bar></li>
-          <li value="2"> <ion-progress-bar [value]="due" color="light"></ion-progress-bar></li>
-          <li value="1"> <ion-progress-bar [value]="uno" color="light"></ion-progress-bar></li>
-        </ol>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-list id="list">
-    <ion-list-header>
-      Commenti recenti
-    </ion-list-header>
+    </div>
+    <section>
+        <ion-button class="ion-float-end ion-text-center ion-no-margin ion-padding-end" size="small" shape="round"
+                    color="primary" (click)="update()" tappable>
+            <ion-icon name='create' slot="start" color="light"></ion-icon>
+            {{ 'MODIFICA_DESCRIZIONE_BOTTONE' | translate }}
+        </ion-button>
+    </section>
 
-    <ion-item>
-      <ion-avatar slot="start">
-      </ion-avatar>
-      <ion-label>
-        <h2><b>Mario</b></h2>
-        <h3>Buon Giocatore!</h3>
-        <p>Nella partita ha giocato bene...</p>
-      </ion-label>
-    </ion-item>
+    <ion-grid class="ion-margin ion-padding-top">
+        <ion-row class="ion-margin-top">
+            <ion-col>
+                <div>
+                    <ion-text color="primary" class="text12"><b>{{'RUOLO_PREFERITO' | translate}}</b></ion-text>
+                    <ion-chip class="ion-margin-top" outline color="dark" slot="start">
+                        <ion-avatar slot="start">
+                            <img src="../../../assets/images/martello.jpg">
+                        </ion-avatar>
+                        <ion-label><b>{{utente$.getValue().ruolo.nome_ruolo.toUpperCase()}}</b></ion-label>
+                    </ion-chip>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                    <ion-text color="primary" class="text12"><b>{{'PARTITE_GIOCATE' | translate}} </b></ion-text>
+                </div>
+                <div class="ion-margin-start ion-margin-top">
+                    <ion-text class="text12"><p
+                            class="ion-text-center ion-no-margin ion-no-padding"> {{utente$.getValue().partite_totali}} </p>
+                    </ion-text>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <br><br>
+    <ion-label class="ion-margin-start" color="light"><b> Valutazioni e recensioni</b></ion-label>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <div margin-start="50px">
+                        <p ion-text margin-start class="text30">{{numero}}</p>
+                        <ion-icon *ngIf="index==0" name="star-outline"></ion-icon>
+                        <ion-icon *ngIf="index>0&&index<1" name="star-half"></ion-icon>
+                        <ion-icon *ngIf="index>1||index==1" name="star"></ion-icon>
+                        <ion-icon *ngIf="index<1" name="star-outline"></ion-icon>
+                        <ion-icon *ngIf="index>1&&index<2" name="star-half"></ion-icon>
+                        <ion-icon *ngIf="index>2||index==2" name="star"></ion-icon>
+                        <ion-icon *ngIf="index<2" name="star-outline"></ion-icon>
+                        <ion-icon *ngIf="index>2&&index<3" name="star-half"></ion-icon>
+                        <ion-icon *ngIf="index>3||index==3" name="star"></ion-icon>
+                        <ion-icon *ngIf="index<3" name="star-outline"></ion-icon>
+                        <ion-icon *ngIf="index>3&&index<4" name="star-half"></ion-icon>
+                        <ion-icon *ngIf="index>4||index==4" name="star"></ion-icon>
+                        <ion-icon *ngIf="index<4" name="star-outline"></ion-icon>
+                        <ion-icon *ngIf="index>4&&index<5" name="star-half"></ion-icon>
+                        <ion-icon *ngIf="index>5||index==5" name="star"></ion-icon>
+                        <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
+                            <p class="text08">recensioni: {{i}}</p>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ol class="ion-no-padding">
+                    <li value="5">
+                        <ion-progress-bar [value]="cinque" color="light"></ion-progress-bar>
+                    </li>
+                    <li value="4">
+                        <ion-progress-bar [value]="quattro" color="light"></ion-progress-bar>
+                    </li>
+                    <li value="3">
+                        <ion-progress-bar [value]="tre" color="light"></ion-progress-bar>
+                    </li>
+                    <li value="2">
+                        <ion-progress-bar [value]="due" color="light"></ion-progress-bar>
+                    </li>
+                    <li value="1">
+                        <ion-progress-bar [value]="uno" color="light"></ion-progress-bar>
+                    </li>
+                </ol>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-list id="list">
+        <ion-list-header>
+            Commenti recenti
+        </ion-list-header>
 
-  </ion-list>
-  <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-            loadingSpinner="bubbles"
-            loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+        <ion-item>
+            <ion-avatar slot="start">
+            </ion-avatar>
+            <ion-label>
+                <h2><b>Mario</b></h2>
+                <h3>Buon Giocatore!</h3>
+                <p>Nella partita ha giocato bene...</p>
+            </ion-label>
+        </ion-item>
 
-
-
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
+
