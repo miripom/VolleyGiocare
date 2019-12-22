@@ -9,16 +9,71 @@
 
 <ion-content>
 
-  <ion-card *ngIf="(partita$ |async) as p">
-    <ion-card-header>
-      <ion-card-title color="dark"> Titolo: {{p['details'].titolo}} </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
 
-      Descrizione: {{p['details'].descrizione}}
-<br>
-      Numero giocatori: {{p['details'].numero_giocatori}}
-    </ion-card-content>
+  <ion-card class="back cardst ion-margin " *ngIf="(partita$ | async) as p">
+    <ion-card-header>
+
+      <ion-card-title class="text-dark">
+        <ion-item>
+        <div>
+          <ion-icon name="clipboard"></ion-icon>
+          <b>Titolo</b> :  {{p['details'].titolo}}
+        </div>
+        </ion-item>
+
+        <ion-item>
+        <div class="ion-margin-top">
+          <ion-icon name="calendar" icon="left"></ion-icon>
+          <b> Data :</b>
+          {{(p['details'].data_ora| date:'dd/MM/yyyy')}}
+        </div>
+        </ion-item>
+
+        <ion-item>
+        <div class="ion-margin-top">
+          <ion-icon name="time" slot="start" icon="left"></ion-icon>
+          <b>Ora :</b>
+          {{(p['details'].data_ora| date:'hh:mm')}}
+        </div>
+        </ion-item>
+
+        <ion-item>
+        <div class="ion-margin-top">
+          <ion-icon name="globe" slot="start" icon="left"></ion-icon>
+          <b>Luogo :</b>
+          {{p['details'].luogo}}
+        </div>
+        </ion-item>
+
+
+        <ion-item>
+        <div class="ion-margin-top">
+          <ion-icon name="book" slot="start" icon="left"></ion-icon>
+          <b>Descrizione :</b>
+          {{p['details'].descrizione}}
+        </div>
+        </ion-item>
+
+        <div class="ion-text-center"><ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                         size="small">
+          <ion-icon slot="start" name='create'></ion-icon>
+          <b> PARTECIPA</b>
+        </ion-button>
+        </div>
+      </ion-card-title>
+
+    </ion-card-header>
+      <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-text-left ion-padding-start=30px">
+          <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
+          {{"   " + p['details'].numero_giocatori}} posti disponibili
+        </ion-col>
+
+<ion-col></ion-col>
+
+      </ion-row>
+
   </ion-card>
 
 
