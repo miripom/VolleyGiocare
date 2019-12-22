@@ -22,12 +22,9 @@ export class DettaglioPartitaPage implements OnInit {
 
     ionViewWillEnter() {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-            this.partita$ =  this.partitaService.findById(parseInt(params.get('id'), 0))
-            this.partita$.subscribe(res => {
-                this.partita = res;
-                console.log(res);
-            });
+            this.partita$ =  this.partitaService.findById(parseInt(params.get('id'), 0));
         });
+        this.partitaService.giocatori(parseInt(params.get('id'), 0));
     }
 
 }

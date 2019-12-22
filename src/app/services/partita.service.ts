@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {URL} from '../constants';
 import {Observable} from 'rxjs';
 import {TipologiaPartita} from '../model/tipologiaPartita.model';
+import {Utente} from '../model/utente.model';
 
 
 @Injectable({
@@ -42,5 +43,9 @@ export class PartitaService {
 
     terminate(): Observable<Partita[]> {
         return this.http.get<Partita[]>(URL.PARTITETERMINATE);
+    }
+
+    giocatori(partitaId: number): Observable<Utente[]> {
+        return this.http.get<Utente[]>(URL.GIOCATORI);
     }
 }

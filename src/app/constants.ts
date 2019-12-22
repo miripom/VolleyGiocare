@@ -22,7 +22,8 @@ export const URL = {
     DETTAGLIOPARTITA: URL_BASE + '/matchD',
     MIEPARTITE: URL_BASE + '/miepartite',
     PARTITETERMINATE: URL_BASE + '/terminated',
-    AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription'
+    AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription',
+    GIOCATORI: URL_BASE + '/giocatori',
 
 
 
