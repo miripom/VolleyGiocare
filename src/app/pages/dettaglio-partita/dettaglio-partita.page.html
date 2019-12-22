@@ -54,11 +54,31 @@
         </div>
         </ion-item>
 
-        <div class="ion-text-center"><ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                         size="small">
+        <div class="ion-text-center">
+        <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                    size="small" (click)="onPartecipa(p['details'])" *ngIf="p['details'].id_organizzatore != utente$.getValue().id
+                                                 && this.Ifpartecipa <=0 && p['details'].numero_giocatori > 0 ">
           <ion-icon slot="start" name='create'></ion-icon>
           <b> {{'PARTECIPA' | translate}}</b>
         </ion-button>
+
+        <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                         size="small" (click)="onDelete(p['details'])" *ngIf="p['details'].id_organizzatore ==utente$.getValue().id">
+          <ion-icon slot="start" name='create'></ion-icon>
+          <b> {{'ELIMINA_PARTITA_BOTTONE' | translate}}</b>
+        </ion-button>
+
+        <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                                                 size="small" (click)="rimuoviPartecipazione(p['details'])" *ngIf="this.Ifpartecipa > 0 && p['details'].id_organizzatore != utente$.getValue().id">
+          <ion-icon slot="start" name='create'></ion-icon>
+          <b> {{'RIMUOVI_PARTECIPAZIONE' | translate}}</b>
+        </ion-button>
+
+          <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                      size="small" *ngIf="p['details'].numero_giocatori<=0 && p['details'].id_organizzatore != utente$.getValue().id">
+            <ion-icon slot="start" name='create'></ion-icon>
+            <b> {{'PARTITA_COMPLETA' | translate}}</b>
+          </ion-button>
         </div>
       </ion-card-title>
 
@@ -79,42 +99,13 @@
       Partecipanti
     </ion-list-header>
 
-    <ion-item>
+    <ion-item *ngFor="let giocatore of partecipanti$|async">
       <ion-avatar slot="start">
         <img src="../../../assets/images/martello.jpg">
       </ion-avatar>
       <ion-label>
-        <h2><b>Erika Biondi</b>, martello</h2>
+        <h2><b>{{giocatore.nome + " " + giocatore.cognome}}</b>, {{giocatore.nome_ruolo[0].nome_ruolo}} </h2>
       </ion-label>
     </ion-item>
   </ion-list>
-
-
-
-
- <!-- <div class="dettagli" >
-    <ion-button *ngIf="m.organizzatore == this.idG" icon-left size="medium" expand="full" shape="round" color="primary" (click)="onDelete()"  tappable>
-      <ion-icon name="heart"></ion-icon>
-      Elimina partita
-    </ion-button>
-
-    <ion-button *ngIf="m.organizzatore != this.idG && this.partecipa <=0 && m.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round" color="primary" (click)="onPartecipa()"  tappable>
-      <ion-icon name="heart"></ion-icon>
-      Partecipa
-    </ion-button>
-
-
-    <ion-button *ngIf="this.partecipa > 0 && m.organizzatore != this.idG" icon-left size="medium" expand="full" shape="round" color="primary"  (click)="removeP()"  tappable>
-      <ion-icon ></ion-icon>
-      Rimuovi partecipazione
-    </ion-button>
-
-    <ion-button *ngIf="m.numero_giocatori<=0 && m.organizzatore != this.idG" icon-left size="medium" expand="full" shape="round" color="primary"   tappable>
-      <ion-icon ></ion-icon>
-      Non ci sono più posti
-    </ion-button>
-  </div> -->
-
-
-
 </ion-content>

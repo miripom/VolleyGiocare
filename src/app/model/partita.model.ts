@@ -10,6 +10,6 @@ export class Partita {
     descrizione: string;
     data_ora: Date;
     luogo: string;
-    giocatori_richiesti: number;
+    numero_giocatori: number;
 
 }

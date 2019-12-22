@@ -45,7 +45,7 @@ export class NuovaPartitaPage implements OnInit {
             data_ora: ['', Validators.compose([
                 Validators.required
             ])],
-            tipologia: ['Volley', Validators.compose([
+            tipologia: ['', Validators.compose([
                 Validators.required
             ])],
             giocatori_richiesti: ['', Validators.compose([

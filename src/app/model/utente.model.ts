@@ -6,7 +6,7 @@ export class Utente {
     cognome: string;
     email: string;
     password: string;
-    ruolo: TipologiaRuolo;
+    id_ruolo: TipologiaRuolo;
     partite_totali: number;
     telefono: string;
     descrizione: string;

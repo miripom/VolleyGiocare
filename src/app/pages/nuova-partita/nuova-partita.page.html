@@ -26,7 +26,7 @@
 
             <ion-item class="ion-padding-end ion-align-items-start">
                 <ion-icon name="person" slot="start"></ion-icon>
-                <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti"></ion-input>
+                <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti" type="number"></ion-input>
             </ion-item>
 
             <ion-item>
@@ -60,7 +60,7 @@
     </form>
 
     <div class="ion-padding-top ion-margin-top">
-        <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()" tappable>
+        <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()" [disabled]="!newMatchFormModel.valid" tappable>
             <ion-icon slot="start" name="checkmark"></ion-icon>
             {{"CREA_PARTITA"}}
         </ion-button>

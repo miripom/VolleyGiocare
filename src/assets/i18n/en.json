@@ -38,7 +38,7 @@
   "MODIFICA_DESCRIZIONE_BOTTONE": "Update Description",
   "PARTITE_GIOCATE": "Total matches",
 
-  "DETTAGLIO_PARTITA": "Detail",
+  "DETTAGLIO_PARTITA": "Details",
   "LOGOUT_MENU": "Logout",
   "TIPOLOGIA_PARTITA": "Type",
   "CREA_PARTITA": "CREATE MATCH",
@@ -49,7 +49,10 @@
   "ORA": "Hours : ",
   "LUOGO": "Place : ",
   "DESCRIZIONE": "Description : ",
+  "ELIMINA_PARTITA_BOTTONE": "Delete Match",
   "PARTECIPA": "ENJOY",
-  "GIOCATORI_RICHIESTI" : "Players almost required"
+  "GIOCATORI_RICHIESTI" : "Players required",
+  "RIMUOVI_PARTECIPAZIONE": "Remove Partecipation",
+  "PARTITA_COMPLETA": "Sold out"
 
 }

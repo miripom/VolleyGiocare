@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Partita} from '../model/partita.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {URL} from '../constants';
 import {Observable} from 'rxjs';
 import {TipologiaPartita} from '../model/tipologiaPartita.model';
@@ -46,6 +46,22 @@ export class PartitaService {
     }
 
     giocatori(partitaId: number): Observable<Utente[]> {
-        return this.http.get<Utente[]>(URL.GIOCATORI);
+        const apiURL = `${URL.GIOCATORI}/${partitaId}`;
+        return this.http.get<Utente[]>(apiURL);
     }
+
+    cancellaPartita(partitaID: number) {
+        const apiURL = `${URL.CANCELLAPARTITA}/${partitaID}`;
+        return this.http.delete(apiURL);
+    }
+    partecipa(partitaID: number) {
+        const apiURL = `${URL.PARTECIPA}/${partitaID}`;
+        return this.http.get(apiURL);
+    }
+
+    cancellaPartecipazione(partitaID: number) {
+        const apiURL = `${URL.RIMUOVIPARTECIPAZIONE}/${partitaID}`;
+        return this.http.delete(apiURL);
+    }
+
 }

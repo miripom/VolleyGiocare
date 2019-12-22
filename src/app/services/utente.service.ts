@@ -87,7 +87,7 @@ export class UtenteService {
             .set('email', account.email)
             .set('password', account.password)
             .set('telefono', account.telefono)
-            .set('nome_ruolo', account.ruolo.nome_ruolo);
+            .set('nome_ruolo', account.id_ruolo.nome_ruolo);
 
         return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
@@ -107,7 +107,6 @@ export class UtenteService {
 
         return this.http.post<Utente>(URL.AGGIUNGIDESCRIZIONE, params, {observe: 'response'});
     }
-
 
 
 }

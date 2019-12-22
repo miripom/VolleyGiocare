@@ -18,12 +18,15 @@ export const URL = {
     TIPOLOGIAPARTITA: URL_BASE + '/match_types',
     RUOLOGIOCATORE: URL_BASE + '/role_types',
     PARTITE: URL_BASE + '/matches',
-    PARTECIPAZIONEORG: URL_BASE + '/partecipaOrg',
+    PARTECIPAZIONEORG: URL_BASE + '/partecipationOrg',
     DETTAGLIOPARTITA: URL_BASE + '/matchD',
-    MIEPARTITE: URL_BASE + '/miepartite',
+    MIEPARTITE: URL_BASE + '/mymatches',
     PARTITETERMINATE: URL_BASE + '/terminated',
     AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription',
-    GIOCATORI: URL_BASE + '/giocatori',
+    GIOCATORI: URL_BASE + '/players',
+    CANCELLAPARTITA: URL_BASE + '/deletematch',
+    PARTECIPA: URL_BASE + '/partecipation',
+    RIMUOVIPARTECIPAZIONE: URL_BASE + '/deletePartecipation'
 
 
 
