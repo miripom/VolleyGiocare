@@ -41,7 +41,7 @@
                 <ion-row class="ion-no-padding">
                     <ion-col class="ion-text-left ion-padding-start=30px">
                         <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                        {{"   " + p.id_organizzatore[0].nome + " " + p.id_organizzatore[0].cognome}}
+                        {{"   " + p.id_organizzatore.nome + " " + p.id_organizzatore.cognome}}
                         <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary" size="small"
                                     [routerLink]="['/dettaglio-partita', p.id]" routerDirection="forward">
                             <ion-icon slot="start" name='create'></ion-icon>

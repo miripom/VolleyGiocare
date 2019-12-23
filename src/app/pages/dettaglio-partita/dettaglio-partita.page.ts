@@ -18,6 +18,7 @@ export class DettaglioPartitaPage implements OnInit {
     private partecipanti$: Observable<Utente[]>;
     private Ifpartecipa = false;
 
+
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService,
                 private utenteService: UtenteService,

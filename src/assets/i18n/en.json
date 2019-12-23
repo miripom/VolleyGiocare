@@ -4,7 +4,6 @@
   "MIE_PARTITE_TITOLO": "My Matches",
   "HOME": "Home",
   "LOGIN_TITOLO": "Login",
-  "EMAIL": "Email",
   "PASSWORD": "Password",
   "PASSWORD_RICHIESTA": "Password Required",
   "EMAIL_RICHIESTA": "Email Required",
@@ -29,7 +28,6 @@
   "NUOVA_PARTITA_TITOLO": "New Match",
   "DATA_ORA": "Date",
   "SELECT": "Select",
-  "DETTAGLIO_PARTITA": "Match Detail",
   "LOGOUT_MENU": "Logout",
   "MIE_PARTITE": "My Matches",
   "PARTITE_DA_GIOCARE": "Matches to play",
@@ -39,7 +37,6 @@
   "PARTITE_GIOCATE": "Total matches",
 
   "DETTAGLIO_PARTITA": "Details",
-  "LOGOUT_MENU": "Logout",
   "TIPOLOGIA_PARTITA": "Type",
   "CREA_PARTITA": "CREATE MATCH",
   "IMPOSTAZIONI_TITOLO": "Settings",
@@ -49,10 +46,11 @@
   "ORA": "Hours : ",
   "LUOGO": "Place : ",
   "DESCRIZIONE": "Description : ",
-  "ELIMINA_PARTITA_BOTTONE": "Delete Match",
   "PARTECIPA": "ENJOY",
   "GIOCATORI_RICHIESTI" : "Players required",
   "RIMUOVI_PARTECIPAZIONE": "Remove Partecipation",
-  "PARTITA_COMPLETA": "Sold out"
+  "PARTITA_COMPLETA": "Sold out",
+  "LASCIA_FEEDBACK_BOTTONE": "Give Feedback",
+  "ELIMINA_PARTITA_BOTTONE": "Delete Match"
 
 }
