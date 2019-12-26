@@ -17,7 +17,7 @@
         <ion-item>
         <div>
           <ion-icon name="clipboard"></ion-icon>
-          <b>{{'TITOLO' | translate}}</b>{{p['details'].titolo}}
+          <b>{{'TITOLO' | translate}}</b>{{p[0].titolo}}
         </div>
         </ion-item>
 
@@ -25,7 +25,7 @@
         <div class="ion-margin-top">
           <ion-icon name="calendar" icon="left"></ion-icon>
           <b>{{'DATA' | translate}}</b>
-          {{(p['details'].data_ora| date:'dd/MM/yyyy')}}
+          {{(p[0].data_ora| date:'dd/MM/yyyy')}}
         </div>
         </ion-item>
 
@@ -33,7 +33,7 @@
         <div class="ion-margin-top">
           <ion-icon name="time" slot="start" icon="left"></ion-icon>
           <b>{{'ORA' | translate}}</b>
-          {{(p['details'].data_ora| date:'hh:mm')}}
+          {{(p[0].data_ora| date:'hh:mm')}}
         </div>
         </ion-item>
 
@@ -41,7 +41,7 @@
         <div class="ion-margin-top">
           <ion-icon name="globe" slot="start" icon="left"></ion-icon>
           <b>{{'LUOGO' | translate}}</b>
-          {{p['details'].luogo}}
+          {{p[0].luogo}}
         </div>
         </ion-item>
 
@@ -50,32 +50,32 @@
         <div class="ion-margin-top">
           <ion-icon name="book" slot="start" icon="left"></ion-icon>
           <b>{{'DESCRIZIONE' | translate}}</b>
-          {{p['details'].descrizione}}
+          {{p[0].descrizione}}
         </div>
         </ion-item>
 
         <div class="ion-text-center">
         <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                    size="small" (click)="onPartecipa(p['details'])" *ngIf="p['details'].id_organizzatore != utente$.getValue().id
-                                                 && this.Ifpartecipa <=0 && p['details'].numero_giocatori > 0 ">
+                    size="small" (click)="onPartecipa(p[0])" *ngIf="p[0].id_organizzatore.id != utente$.getValue().id
+                                                 && this.Ifpartecipa <=0 && p[0].numero_giocatori > 0 ">
           <ion-icon slot="start" name='create'></ion-icon>
           <b> {{'PARTECIPA' | translate}}</b>
         </ion-button>
 
         <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                         size="small" (click)="onDelete(p['details'])" *ngIf="p['details'].id_organizzatore ==utente$.getValue().id">
+                         size="small" (click)="onDelete(p[0])" *ngIf="p[0].id_organizzatore.id ==utente$.getValue().id">
           <ion-icon slot="start" name='create'></ion-icon>
           <b> {{'ELIMINA_PARTITA_BOTTONE' | translate}}</b>
         </ion-button>
 
         <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                                                 size="small" (click)="rimuoviPartecipazione(p['details'])" *ngIf="this.Ifpartecipa > 0 && p['details'].id_organizzatore != utente$.getValue().id">
+                                                 size="small" (click)="rimuoviPartecipazione(p[0])" *ngIf="this.Ifpartecipa > 0 && p[0].id_organizzatore.id != utente$.getValue().id">
           <ion-icon slot="start" name='create'></ion-icon>
           <b> {{'RIMUOVI_PARTECIPAZIONE' | translate}}</b>
         </ion-button>
 
           <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                      size="small" *ngIf="p['details'].numero_giocatori<=0 && p['details'].id_organizzatore != utente$.getValue().id">
+                      size="small" *ngIf="p[0].numero_giocatori<=0 && p[0].id_organizzatore.id != utente$.getValue().id">
             <ion-icon slot="start" name='create'></ion-icon>
             <b> {{'PARTITA_COMPLETA' | translate}}</b>
           </ion-button>
@@ -87,7 +87,7 @@
       <ion-row class="ion-no-padding">
         <ion-col class="ion-text-left ion-padding-start=30px">
           <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-          {{"   " + p['details'].numero_giocatori}} {{'GIOCATORI_RICHIESTI' | translate}}
+          {{"   " + p[0].numero_giocatori}} {{'GIOCATORI_RICHIESTI' | translate}}
         </ion-col>
 
 <ion-col></ion-col>

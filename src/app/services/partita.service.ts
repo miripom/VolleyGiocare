@@ -63,5 +63,9 @@ export class PartitaService {
         const apiURL = `${URL.RIMUOVIPARTECIPAZIONE}/${partitaID}`;
         return this.http.delete(apiURL);
     }
+    controlloPartecipazione(partitaID: number) {
+        const apiURL = `${URL.CONTROLLOPARTECIPAZIONE}/${partitaID}`;
+        return this.http.get(apiURL);
+    }
 
 }

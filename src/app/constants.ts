@@ -26,7 +26,8 @@ export const URL = {
     GIOCATORI: URL_BASE + '/players',
     CANCELLAPARTITA: URL_BASE + '/deletematch',
     PARTECIPA: URL_BASE + '/partecipation',
-    RIMUOVIPARTECIPAZIONE: URL_BASE + '/deletePartecipation'
+    RIMUOVIPARTECIPAZIONE: URL_BASE + '/deletePartecipation',
+    CONTROLLOPARTECIPAZIONE: URL_BASE + '/checkPartecipation'
 
 
 

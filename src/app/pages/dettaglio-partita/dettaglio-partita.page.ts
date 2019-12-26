@@ -16,7 +16,7 @@ export class DettaglioPartitaPage implements OnInit {
     private partita$: Observable<Partita>;
     private utente$: BehaviorSubject<Utente>;
     private partecipanti$: Observable<Utente[]>;
-    private Ifpartecipa = false;
+    private Ifpartecipa;
 
 
     constructor(private activatedRoute: ActivatedRoute,
@@ -33,10 +33,7 @@ export class DettaglioPartitaPage implements OnInit {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.partita$ = this.partitaService.findById(parseInt(params.get('id'), 0));
             this.partecipanti$ = this.partitaService.giocatori(parseInt(params.get('id'), 0));
-            this.partita$.subscribe(res => {
-                const result = 'result';
-                this.Ifpartecipa = res[result];
-            });
+            this.Ifpartecipa = this.partitaService.controlloPartecipazione(parseInt(params.get('id'), 0));
         });
     }
 
