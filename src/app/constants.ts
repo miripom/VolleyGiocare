@@ -29,6 +29,7 @@ export const URL = {
     RIMUOVIPARTECIPAZIONE: URL_BASE + '/deletePartecipation',
     CONTROLLOPARTECIPAZIONE: URL_BASE + '/checkPartecipation',
     FEEDBACKPARTITA: URL_BASE + '/feedbackP',
+    VOTAZIONE: URL_BASE + '/votazione'
 
 
 

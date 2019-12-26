@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Utente} from '../../model/utente.model';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {PartitaService} from '../../services/partita.service';
+import {PartitaService, Votazione} from '../../services/partita.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -36,10 +36,14 @@ export class FeedbackGiocatoriPage implements OnInit {
     }
 
     vota(idGiocatore) {
-        const utente: Utente = this.ratingFormModel.value;
-        utente.voto = this.ratingFormModel.get('voto').value;
-        console.log(utente.voto);
-        console.log('L id del giocatore cliccato è ' + idGiocatore);
+        const votazione: Votazione = this.ratingFormModel.value;
+        votazione.voto = this.ratingFormModel.get('voto').value;
+        votazione.idGiocatore = idGiocatore;
+
+        console.log('L id del giocatore cliccato è ' + votazione.idGiocatore);
+        console.log('Il voto lasciato è:' + votazione.voto);
+
+        this.partitaService.vota(votazione);
     }
 
 }
