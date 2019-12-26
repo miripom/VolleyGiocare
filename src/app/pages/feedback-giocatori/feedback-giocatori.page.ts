@@ -20,10 +20,12 @@ export class FeedbackGiocatoriPage implements OnInit {
     }
 
     ngOnInit() {
+
         this.ratingFormModel = this.formBuilder.group({
             voto: ['', Validators.compose([
-                Validators.required
+                Validators.required, Validators.pattern('[0-5]')
             ])]
+
         });
     }
 
@@ -31,6 +33,13 @@ export class FeedbackGiocatoriPage implements OnInit {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.giocatori$ = this.partitaService.findGiocatori(parseInt(params.get('id'), 0));
         });
+    }
+
+    vota(idGiocatore) {
+        const utente: Utente = this.ratingFormModel.value;
+        utente.voto = this.ratingFormModel.get('voto').value;
+        console.log(utente.voto);
+        console.log('L id del giocatore cliccato è ' + idGiocatore);
     }
 
 }

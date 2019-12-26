@@ -22,10 +22,13 @@
 
           <ion-item-divider></ion-item-divider>
           <ion-row>
+
+            <form [formGroup]="ratingFormModel" class="list-form">
             <ion-item>
               <ion-label position="stacked" class="ion-text-center">{{'RANGE' | translate}}</ion-label>
-              <ion-input class="ion-text-center" formControlName="voto"></ion-input>
+              <ion-input class="ion-text-center" formControlName="voto" ></ion-input>
             </ion-item>
+            </form>
 
 
               <!--<ion-item>
@@ -41,7 +44,7 @@
 
             <ion-col>
               <ion-button class="bordo" expand="full" shape="round" color="primary"
-                          size="small">
+                          size="small" (click)="vota(g.id)">
                 <ion-icon slot="start" name='medal'></ion-icon>
                 <b> {{'VOTA' | translate}}</b>
               </ion-button>
@@ -54,3 +57,4 @@
   </ion-grid>
 
 </ion-content>
+
