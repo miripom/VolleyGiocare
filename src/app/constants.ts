@@ -27,7 +27,8 @@ export const URL = {
     CANCELLAPARTITA: URL_BASE + '/deletematch',
     PARTECIPA: URL_BASE + '/partecipation',
     RIMUOVIPARTECIPAZIONE: URL_BASE + '/deletePartecipation',
-    CONTROLLOPARTECIPAZIONE: URL_BASE + '/checkPartecipation'
+    CONTROLLOPARTECIPAZIONE: URL_BASE + '/checkPartecipation',
+    FEEDBACKPARTITA: URL_BASE + '/feedbackP',
 
 
 

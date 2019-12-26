@@ -51,6 +51,9 @@
   "RIMUOVI_PARTECIPAZIONE": "Remove Partecipation",
   "PARTITA_COMPLETA": "Sold out",
   "LASCIA_FEEDBACK_BOTTONE": "Give Feedback",
-  "ELIMINA_PARTITA_BOTTONE": "Delete Match"
+  "ELIMINA_PARTITA_BOTTONE": "Delete Match",
+  "FEEDBACK_GIOCATORI_TITOLO" : "Feedback",
+  "VOTA" : "RATE!",
+  "RANGE": "From 1 to 5"
 
 }

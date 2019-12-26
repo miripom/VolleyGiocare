@@ -68,4 +68,9 @@ export class PartitaService {
         return this.http.get(apiURL);
     }
 
+    findGiocatori(partitaID: number): Observable<Utente[]> {
+        const apiURL = `${URL.FEEDBACKPARTITA}/${partitaID}`;
+        return this.http.get<Utente[]>(apiURL);
+    }
+
 }

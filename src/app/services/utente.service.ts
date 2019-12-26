@@ -97,7 +97,7 @@ export class UtenteService {
 
     }
 
-    ruoloGiocatore(): Observable<TipologiaRuolo[]>{
+    ruoloGiocatore(): Observable<TipologiaRuolo[]> {
         return this.http.get<TipologiaRuolo[]>(URL.RUOLOGIOCATORE);
     }
 
@@ -107,6 +107,5 @@ export class UtenteService {
 
         return this.http.post<Utente>(URL.AGGIUNGIDESCRIZIONE, params, {observe: 'response'});
     }
-
 
 }

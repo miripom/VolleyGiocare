@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">{{'FEEDBACK_GIOCATORI_TITOLO' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/mie-partite" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!--Mettere una traduzione su LASCIA_FEEDBACK in inglese su en.json -->
+
+<ion-content>
+  <section class="ion-padding">
+    <ion-text class="ion-padding-top ion-margin"><b>{{'LASCIA_FEEDBACK' | translate}}</b> </ion-text>
+  </section>
+  <ion-grid>
+    <ion-row >
+      <ion-col  col-6 size="6" *ngFor="let g of giocatori$ | async">
+        <ion-card class="card ion-text-center ion-padding">
+          <p class="text-dark"><b>{{g.nome}} {{g.cognome}}</b></p>
+          {{g.id_ruolo.nome_ruolo}}
+
+          <ion-item-divider></ion-item-divider>
+          <ion-row>
+            <ion-item>
+              <ion-label position="stacked" class="ion-text-center">{{'RANGE' | translate}}</ion-label>
+              <ion-input class="ion-text-center" formControlName="voto"></ion-input>
+            </ion-item>
+
+
+              <!--<ion-item>
+                <ion-label>Voto</ion-label>
+                <ion-select placeholder="Select One" text-center>
+                  <ion-select-option value="1">1</ion-select-option>
+                  <ion-select-option value="2">2</ion-select-option>
+                  <ion-select-option value="3">3</ion-select-option>
+                  <ion-select-option value="4">4</ion-select-option>
+                  <ion-select-option value="5">5</ion-select-option>
+                </ion-select>
+              </ion-item>-->
+
+            <ion-col>
+              <ion-button class="bordo" expand="full" shape="round" color="primary"
+                          size="small">
+                <ion-icon slot="start" name='medal'></ion-icon>
+                <b> {{'VOTA' | translate}}</b>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -19,6 +19,8 @@ export class DettaglioPartitaPage implements OnInit {
     private Ifpartecipa;
 
 
+
+
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService,
                 private utenteService: UtenteService,
@@ -33,7 +35,9 @@ export class DettaglioPartitaPage implements OnInit {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.partita$ = this.partitaService.findById(parseInt(params.get('id'), 0));
             this.partecipanti$ = this.partitaService.giocatori(parseInt(params.get('id'), 0));
-            this.Ifpartecipa = this.partitaService.controlloPartecipazione(parseInt(params.get('id'), 0));
+            this.partitaService.controlloPartecipazione(parseInt(params.get('id'), 0)).subscribe(res => {
+                this.Ifpartecipa = res;
+            });
         });
     }
 

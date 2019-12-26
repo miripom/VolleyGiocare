@@ -55,9 +55,9 @@
         </ion-item>
 
         <div class="ion-text-center">
-        <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                    size="small" (click)="onPartecipa(p[0])" *ngIf="p[0].id_organizzatore.id != utente$.getValue().id
-                                                 && this.Ifpartecipa <=0 && p[0].numero_giocatori > 0 ">
+        <ion-button  *ngIf="p[0].id_organizzatore.id != utente$.getValue().id
+                                                 && this.Ifpartecipa <=0 && p[0].numero_giocatori > 0 " class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                    size="small" (click)="onPartecipa(p[0])">
           <ion-icon slot="start" name='create'></ion-icon>
           <b> {{'PARTECIPA' | translate}}</b>
         </ion-button>

@@ -49,5 +49,9 @@
   "PARTECIPA": "Partecipa",
   "GIOCATORI_RICHIESTI": "Posti disponibli",
   "LASCIA_FEEDBACK_BOTTONE": "Lascia feedback",
-  "ELIMINA_PARTITA_BOTTONE": "Elimina partita"
+  "ELIMINA_PARTITA_BOTTONE": "Elimina partita",
+  "FEEDBACK_GIOCATORI_TITOLO" : "Feedback",
+  "VOTA": "VOTA!",
+  "RANGE": "Da 1 a 5",
+  "LASCIA_FEEDBACK": "Lascia feedback"
 }
