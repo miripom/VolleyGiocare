@@ -39,11 +39,7 @@ export class FeedbackGiocatoriPage implements OnInit {
         const votazione: Votazione = this.ratingFormModel.value;
         votazione.voto = this.ratingFormModel.get('voto').value;
         votazione.idGiocatore = idGiocatore;
-
-        console.log('L id del giocatore cliccato è ' + votazione.idGiocatore);
-        console.log('Il voto lasciato è:' + votazione.voto);
-
-        this.partitaService.vota(votazione);
+        this.partitaService.vota(votazione).subscribe();
     }
 
 }

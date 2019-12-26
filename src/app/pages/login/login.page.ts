@@ -12,12 +12,10 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
     private loginFormModel: FormGroup;
-    private loading;
 
     constructor(private formBuilder: FormBuilder,
                 private navController: NavController,
                 private alertController: AlertController,
-                private loadingCtrl: LoadingController,
                 private utenteService: UtenteService) {
 
     }
