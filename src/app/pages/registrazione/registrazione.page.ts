@@ -5,7 +5,8 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {UtenteService} from '../../services/utente.service';
 import {Utente} from '../../model/utente.model';
 import {TipologiaRuolo} from '../../model/tipologiaRuolo.model';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
+
 
 @Component({
     selector: 'app-registrazione',
