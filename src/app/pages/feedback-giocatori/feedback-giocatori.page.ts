@@ -23,10 +23,9 @@ export class FeedbackGiocatoriPage implements OnInit {
 
         this.ratingFormModel = this.formBuilder.group({
             voto: ['', Validators.compose([
-                Validators.required, Validators.pattern('[0-5]')
+                Validators.required, Validators.pattern('[1-5]')
             ])],
             commento: ['', Validators.compose([
-                Validators.required
             ])],
 
         });
