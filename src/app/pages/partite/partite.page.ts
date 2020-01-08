@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {PartitaService} from '../../services/partita.service';
 import {Partita} from '../../model/partita.model';
 import {Observable} from 'rxjs';
+import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
 
 
 @Component({
@@ -15,14 +16,14 @@ export class PartitePage implements OnInit {
 
 
     constructor(private nav: NavController,
-                private partitaService: PartitaService) {
+                private partitaService: PartitaService,
+                private modalController: ModalController) {
     }
 
-    ionViewWillEnter() {
-        this.partite$ = this.partitaService.lista();
-    }
 
     ngOnInit() {
+        this.partite$ = this.partitaService.lista();
+        console.log('ciao');
     }
 
 
@@ -36,5 +37,15 @@ export class PartitePage implements OnInit {
 
     nuovaPartita() {
         this.nav.navigateRoot('/nuova-partita');
+    }
+
+    async apriDettaglio(partita: Partita) {
+        const modal = await this.modalController.create({
+            component: DettaglioPartitaPage,
+            componentProps: {appParam: partita}
+        });
+        modal.onDidDismiss().then(() => this.partitaService.lista());
+        return await modal.present();
+
     }
 }

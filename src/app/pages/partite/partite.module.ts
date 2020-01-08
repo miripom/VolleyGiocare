@@ -4,20 +4,29 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {PartitePageRoutingModule} from './partite-routing.module';
 
 import {PartitePage} from './partite.page';
 import {TranslateModule} from '@ngx-translate/core';
+import {RouterModule, Routes} from '@angular/router';
+import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
+
+const routes: Routes = [
+    {
+        path: '',
+        component: PartitePage
+    }
+];
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        PartitePageRoutingModule,
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
+        RouterModule.forChild(routes),
     ],
-    declarations: [PartitePage]
+    declarations: [PartitePage, DettaglioPartitaPage],
+    entryComponents: [DettaglioPartitaPage]
 })
 export class PartitePageModule {
 }

@@ -43,7 +43,7 @@
                         <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
                         {{"   " + p.id_organizzatore.nome + " " + p.id_organizzatore.cognome}}
                         <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary" size="small"
-                                    [routerLink]="['/dettaglio-partita', p.id]" routerDirection="forward">
+                                    (click)="apriDettaglio(p)">
                             <ion-icon slot="start" name='create'></ion-icon>
                             <b> {{'DETTAGLIO_PARTITA' | translate}}</b>
                         </ion-button>

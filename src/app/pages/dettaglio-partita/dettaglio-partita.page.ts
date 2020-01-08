@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {PartitaService} from '../../services/partita.service';
-import {Utente} from "../../model/utente.model";
-import {UtenteService} from "../../services/utente.service";
-import {NavController} from "@ionic/angular";
+import {Utente} from '../../model/utente.model';
+import {UtenteService} from '../../services/utente.service';
+import {ModalController, NavController, NavParams} from '@ionic/angular';
 
 @Component({
     selector: 'app-dettaglio-partita',
@@ -13,38 +13,36 @@ import {NavController} from "@ionic/angular";
     styleUrls: ['./dettaglio-partita.page.scss'],
 })
 export class DettaglioPartitaPage implements OnInit {
+    private partita: Partita;
     private partita$: Observable<Partita>;
     private utente$: BehaviorSubject<Utente>;
     private partecipanti$: Observable<Utente[]>;
     private Ifpartecipa;
 
 
-
-
-    constructor(private activatedRoute: ActivatedRoute,
+    constructor(private modalController: ModalController,
                 private partitaService: PartitaService,
                 private utenteService: UtenteService,
-                private navController: NavController) {
+                private navController: NavController,
+                private navParams: NavParams) {
     }
 
     ngOnInit() {
-    }
+        this.partita = this.navParams.data.appParam;
+        console.log(this.partita.id);
 
-    ionViewWillEnter() {
         this.utente$ = this.utenteService.getUtente();
-        this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-            this.partita$ = this.partitaService.findById(parseInt(params.get('id'), 0));
-            this.partecipanti$ = this.partitaService.giocatori(parseInt(params.get('id'), 0));
-            this.partitaService.controlloPartecipazione(parseInt(params.get('id'), 0)).subscribe(res => {
-                this.Ifpartecipa = res;
-            });
+        this.partita$ = this.partitaService.findById(this.partita.id);
+        this.partecipanti$ = this.partitaService.giocatori(this.partita.id);
+        this.partitaService.controlloPartecipazione(this.partita.id).subscribe(res => {
+            this.Ifpartecipa = res;
         });
     }
 
 
-    onDelete(partita: Partita) {
-        this.partitaService.cancellaPartita(partita.id).subscribe();
-        this.navController.navigateRoot('/tabs/partite');
+    async onDelete(partita: Partita) {
+        this.partitaService.cancellaPartita(partita.id).subscribe(() => this.partitaService.lista());
+        await this.modalController.dismiss();
 
     }
 

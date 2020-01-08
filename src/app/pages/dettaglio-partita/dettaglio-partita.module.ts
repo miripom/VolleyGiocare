@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { DettaglioPartitaPageRoutingModule } from './dettaglio-partita-routing.module';
 
 import { DettaglioPartitaPage } from './dettaglio-partita.page';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -17,6 +17,5 @@ import {TranslateModule} from "@ngx-translate/core";
     DettaglioPartitaPageRoutingModule,
     TranslateModule
   ],
-  declarations: [DettaglioPartitaPage]
 })
 export class DettaglioPartitaPageModule {}
