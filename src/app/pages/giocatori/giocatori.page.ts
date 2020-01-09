@@ -6,11 +6,11 @@ import {PartitaService, Votazione} from '../../services/partita.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-    selector: 'app-feedback-giocatori',
-    templateUrl: './feedback-giocatori.page.html',
-    styleUrls: ['./feedback-giocatori.page.scss'],
+    selector: 'app-giocatori',
+    templateUrl: './giocatori.page.html',
+    styleUrls: ['./giocatori.page.scss'],
 })
-export class FeedbackGiocatoriPage implements OnInit {
+export class GiocatoriPage implements OnInit {
     private giocatori$: Observable<Utente[]>;
     private ratingFormModel: FormGroup;
 

@@ -4,9 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FeedbackGiocatoriPageRoutingModule } from './feedback-giocatori-routing.module';
+import {GiocatoriPageRoutingModule } from './giocatori-routing.module';
 
-import { FeedbackGiocatoriPage } from './feedback-giocatori.page';
+import { GiocatoriPage } from './giocatori.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
@@ -14,10 +14,10 @@ import {TranslateModule} from '@ngx-translate/core';
         CommonModule,
         FormsModule,
         IonicModule,
-        FeedbackGiocatoriPageRoutingModule,
+        GiocatoriPageRoutingModule,
         TranslateModule,
         ReactiveFormsModule
     ],
-  declarations: [FeedbackGiocatoriPage]
+  declarations: [GiocatoriPage]
 })
-export class FeedbackGiocatoriPageModule {}
+export class GiocatoriPageModule {}

@@ -32,8 +32,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/impostazioni/impostazioni.module').then( m => m.ImpostazioniPageModule)
   },
   {
-    path: 'feedback-giocatori/:id',
-    loadChildren: () => import('./pages/feedback-giocatori/feedback-giocatori.module').then( m => m.FeedbackGiocatoriPageModule)
+    path: 'giocatori/:id',
+    loadChildren: () => import('./pages/giocatori/giocatori.module').then(m => m.GiocatoriPageModule)
   }
 
   ]
