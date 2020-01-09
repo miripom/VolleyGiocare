@@ -52,8 +52,9 @@
   "PARTITA_COMPLETA": "Sold out",
   "LASCIA_FEEDBACK_BOTTONE": "Give Feedback",
   "ELIMINA_PARTITA_BOTTONE": "Delete Match",
-  "FEEDBACK_GIOCATORI_TITOLO" : "Feedback",
+  "GIOCATORI_TITOLO" : "Players",
   "VOTA" : "RATE!",
-  "RANGE": "From 1 to 5"
+  "RANGE": "From 1 to 5",
+  "GIOCATORI": "Chi ha giocato con te"
 
 }
