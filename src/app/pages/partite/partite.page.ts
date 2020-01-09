@@ -44,7 +44,7 @@ export class PartitePage implements OnInit {
             component: DettaglioPartitaPage,
             componentProps: {appParam: partita}
         });
-        modal.onDidDismiss().then(() => this.partitaService.lista());
+        modal.onDidDismiss().then(() => this.partite$ = this.partitaService.lista());
         return await modal.present();
 
     }
