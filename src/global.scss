@@ -241,3 +241,17 @@ ion-card {
   }
 
 }
+
+.my-custom-modal-css .modal-wrapper {
+ /* height: 40%;
+  top: 40%;
+  position: center;
+  display: compact;*/
+
+  margin: 15%; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  height: 40%;
+  width: 80%; /* Could be more or less, depending on screen size */
+
+}

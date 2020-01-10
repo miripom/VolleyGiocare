@@ -4,6 +4,9 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {PartitaService, Votazione} from '../../services/partita.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
+import {ModalController} from '@ionic/angular';
+import {FeedbackPage} from '../feedback/feedback.page';
 
 @Component({
     selector: 'app-giocatori',
@@ -12,23 +15,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class GiocatoriPage implements OnInit {
     private giocatori$: Observable<Utente[]>;
-    private ratingFormModel: FormGroup;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService,
-                private formBuilder: FormBuilder) {
+                private modalController: ModalController
+               ) {
     }
 
     ngOnInit() {
-
-        this.ratingFormModel = this.formBuilder.group({
-            voto: ['', Validators.compose([
-                Validators.required, Validators.pattern('[1-5]')
-            ])],
-            commento: ['', Validators.compose([
-            ])],
-
-        });
     }
 
     ionViewWillEnter() {
@@ -37,11 +31,19 @@ export class GiocatoriPage implements OnInit {
         });
     }
 
-    vota(idGiocatore) {
+    /*vota(idGiocatore) {
         const votazione: Votazione = this.ratingFormModel.value;
         votazione.voto = this.ratingFormModel.get('voto').value;
         votazione.idGiocatore = idGiocatore;
         this.partitaService.vota(votazione).subscribe();
-    }
+    }*/
 
+    async apriVotazione(giocatore: Utente) {
+        const modal = await this.modalController.create({
+            component: FeedbackPage,
+            cssClass: 'my-custom-modal-css',
+            componentProps: {appParam: giocatore}
+        });
+        return await modal.present();
+    }
 }

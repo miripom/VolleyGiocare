@@ -34,8 +34,7 @@ const routes: Routes = [
   {
     path: 'giocatori/:id',
     loadChildren: () => import('./pages/giocatori/giocatori.module').then(m => m.GiocatoriPageModule)
-  }
-
+  },
   ]
 ;
 
