@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title class="ion-text-center">{{'DETTAGLIO_PARTITA_TITOLO' | translate}}</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/partite" icon="arrow-round-back"></ion-back-button>
-    </ion-buttons>
+    <ion-button slot="end"  size="small"
+    (click)="chiudiModal()">
+    <ion-icon name='close'></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 

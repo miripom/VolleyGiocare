@@ -23,7 +23,6 @@ export class PartitePage implements OnInit {
 
     ngOnInit() {
         this.partite$ = this.partitaService.lista();
-        console.log('ciao');
     }
 
 

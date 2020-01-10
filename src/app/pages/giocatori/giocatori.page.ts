@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Utente} from '../../model/utente.model';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {PartitaService, Votazione} from '../../services/partita.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
+import {PartitaService} from '../../services/partita.service';
 import {ModalController} from '@ionic/angular';
 import {FeedbackPage} from '../feedback/feedback.page';
+import {Partita} from '../../model/partita.model';
 
 @Component({
     selector: 'app-giocatori',
@@ -19,7 +18,7 @@ export class GiocatoriPage implements OnInit {
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService,
                 private modalController: ModalController
-               ) {
+    ) {
     }
 
     ngOnInit() {
@@ -31,18 +30,15 @@ export class GiocatoriPage implements OnInit {
         });
     }
 
-    /*vota(idGiocatore) {
-        const votazione: Votazione = this.ratingFormModel.value;
-        votazione.voto = this.ratingFormModel.get('voto').value;
-        votazione.idGiocatore = idGiocatore;
-        this.partitaService.vota(votazione).subscribe();
-    }*/
-
     async apriVotazione(giocatore: Utente) {
+        const partita = new Partita();
+        this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+            partita.id = parseInt(params.get('id'), 0);
+        });
         const modal = await this.modalController.create({
             component: FeedbackPage,
             cssClass: 'my-custom-modal-css',
-            componentProps: {appParam: giocatore}
+            componentProps: {appParam: giocatore.id, partitaId: partita}
         });
         return await modal.present();
     }

@@ -1,14 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Partita} from '../model/partita.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {URL} from '../constants';
 import {Observable} from 'rxjs';
 import {TipologiaPartita} from '../model/tipologiaPartita.model';
 import {Utente} from '../model/utente.model';
 
-export interface Votazione {
-    idGiocatore: number;
-    voto: number;
+export interface Feedback {
+    commento: string;
+    stelle: string;
+    giocatoreVotato: Utente;
+    partita: Partita;
 }
 
 @Injectable({
@@ -79,8 +81,15 @@ export class PartitaService {
         return this.http.get<Utente[]>(apiURL);
     }
 
-    vota(votazione: Votazione) {
-        return this.http.post<Votazione>(URL.VOTAZIONE, votazione);
+    lasciaFeedback(feedback: Feedback) {
+        const params = new HttpParams()
+            .set('commento', feedback.commento)
+            .set('voto', feedback.stelle)
+            .set('id_giocatore_votato', feedback.giocatoreVotato.toString())
+            .set('id_partita', feedback.partita.id.toString());
+        console.log(params);
+
+        return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
     }
 
 }

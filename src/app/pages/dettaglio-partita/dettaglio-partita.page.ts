@@ -1,7 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
-import {ActivatedRoute, ParamMap} from '@angular/router';
 import {PartitaService} from '../../services/partita.service';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
@@ -46,14 +45,18 @@ export class DettaglioPartitaPage implements OnInit {
 
     }
 
-    onPartecipa(partita: Partita) {
+    async onPartecipa(partita: Partita) {
 
         this.partitaService.partecipa(partita.id).subscribe();
-        this.navController.navigateRoot('/tabs/partite');
+        await this.modalController.dismiss();
     }
 
-    rimuoviPartecipazione(partita: Partita) {
+    async rimuoviPartecipazione(partita: Partita) {
         this.partitaService.cancellaPartecipazione(partita.id).subscribe();
-        this.navController.navigateRoot('/tabs/partite');
+        await this.modalController.dismiss();
+    }
+
+    async chiudiModal() {
+        await this.modalController.dismiss();
     }
 }

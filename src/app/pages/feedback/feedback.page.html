@@ -24,8 +24,8 @@
     <ion-item class="text08">
       <ion-icon name="ribbon" class="ion-padding-end ion-align-items-start" ></ion-icon>
 
-      <div class="ion-text-center">
-        <ion-icon name="star" color="{{color.color1}}"  class="larger" (click)="starUno($event)" ></ion-icon>
+      <div class="ion-text-center" >
+        <ion-icon name="star" color="{{color.color1}}"  class="larger" (click)="starUno($event)"></ion-icon>
         <ion-icon name="star" color="{{color.color2}}"  class="larger" (click)="starDue($event)"></ion-icon>
         <ion-icon name="star" color="{{color.color3}}" class="larger" (click)="starTre($event)"></ion-icon>
         <ion-icon name="star" color="{{color.color4}}" class="larger" (click)="starQuattro($event)"></ion-icon>
@@ -39,13 +39,20 @@
   <!--mettere funzione di voto-->
 <ion-row>
   <ion-col class="ion-text-center">
-  <ion-button class="bordo ion-margin " shape="round" color="primary" expand="block"
-              size="small"  type="submit" [disabled]="!votazioneFormModel.valid">
+  <ion-button class="bordo ion-margin " shape="round" color="primary" expand="block" (click)="vota()"
+              size="small"  type="submit" [disabled]="color.color1=='' && color.color2=='' && color.color3=='' && color.color4=='' && color.color5==''">
     <ion-icon slot="start" name='medal'></ion-icon>
     <b> {{'VOTA' | translate}}</b>
   </ion-button>
+    <ion-button class="bordo ion-margin " shape="round" color="primary" expand="block"
+                size="small"  type="submit" (click)="reset()">
+      <ion-icon slot="start" name='medal'></ion-icon>
+      <b>ANNULLA</b>
+    </ion-button>
   </ion-col>
+
 </ion-row>
+
   </form>
 </ion-content>
 
