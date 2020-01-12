@@ -78,12 +78,11 @@ export class PartitaService {
     lasciaFeedback(feedback: Feedback) {
         const params = new HttpParams()
             .set('commento', feedback.commento)
-            .set('voto', feedback.voto.toString())
+            .set('voto', feedback.voto)
             .set('id_giocatore_votato', feedback.id_giocatore_votato.id.toString())
             .set('id_partita', feedback.id_partita.id.toString());
-        console.log(params);
 
-        return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
+    return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
     }
 
     checkFeedback(partita: Partita, giocatore: Utente): Observable<Feedback>{

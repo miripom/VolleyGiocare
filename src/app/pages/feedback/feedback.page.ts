@@ -4,7 +4,7 @@ import {ModalController, NavParams} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import { PartitaService} from '../../services/partita.service';
+import {PartitaService} from '../../services/partita.service';
 import {Partita} from '../../model/partita.model';
 import {Observable} from 'rxjs';
 import {Feedback} from '../../model/feedback.model';
@@ -20,7 +20,8 @@ export class FeedbackPage implements OnInit {
     private numeroStelle: number;
     private giocatore: Utente;
     private partita: Partita;
-    private feedback: Observable<Feedback>;
+    private check;
+    private feedback;
 
     constructor(private formBuilder: FormBuilder,
                 private modalController: ModalController,
@@ -36,15 +37,19 @@ export class FeedbackPage implements OnInit {
 
         this.votazioneFormModel = this.formBuilder.group({
             commento: new FormControl(),
-            stelle: new FormControl()
+            voto: new FormControl()
         });
 
         this.giocatore = this.navParams.data.appParam;
         this.partita = this.navParams.data.partitaParam;
 
-        this.feedback = this.partitaService.checkFeedback(this.partita, this.giocatore);
+        this.partitaService.checkFeedback(this.partita, this.giocatore).subscribe(res => {
+            const feedback = 'feedback';
+            const check = 'check';
+            this.feedback = res[feedback][0];
+            this.check = res[check];
 
-
+        });
 
 
     }
@@ -60,7 +65,7 @@ export class FeedbackPage implements OnInit {
         this.color.color4 = '';
         this.color.color5 = '';
         this.numeroStelle = 1;
-        this.votazioneFormModel.patchValue({stelle: this.numeroStelle});
+        this.votazioneFormModel.patchValue({voto: this.numeroStelle});
     }
 
     starDue(event) {
@@ -70,7 +75,7 @@ export class FeedbackPage implements OnInit {
         this.color.color4 = '';
         this.color.color5 = '';
         this.numeroStelle = 2;
-        this.votazioneFormModel.patchValue({stelle: this.numeroStelle});
+        this.votazioneFormModel.patchValue({voto: this.numeroStelle});
     }
 
     starTre(event) {
@@ -80,7 +85,7 @@ export class FeedbackPage implements OnInit {
         this.color.color4 = '';
         this.color.color5 = '';
         this.numeroStelle = 3;
-        this.votazioneFormModel.patchValue({stelle: this.numeroStelle});
+        this.votazioneFormModel.patchValue({voto: this.numeroStelle});
     }
 
     starQuattro(event) {
@@ -90,7 +95,7 @@ export class FeedbackPage implements OnInit {
         this.color.color4 = 'primary';
         this.color.color5 = '';
         this.numeroStelle = 4;
-        this.votazioneFormModel.patchValue({stelle: this.numeroStelle});
+        this.votazioneFormModel.patchValue({voto: this.numeroStelle});
     }
 
     starCinque(event) {
@@ -100,7 +105,7 @@ export class FeedbackPage implements OnInit {
         this.color.color4 = 'primary';
         this.color.color5 = 'primary';
         this.numeroStelle = 5;
-        this.votazioneFormModel.patchValue({stelle: this.numeroStelle});
+        this.votazioneFormModel.patchValue({voto: this.numeroStelle});
     }
 
     reset() {

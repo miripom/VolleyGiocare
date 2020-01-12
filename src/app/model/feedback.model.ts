@@ -7,6 +7,6 @@ export class Feedback {
     id_giocatore_votato: Utente;
     id_partita: Partita;
     commento: string;
-    voto: number;
+    voto: string;
 
 }
