@@ -3,7 +3,7 @@ import {ModalController, NavController} from '@ionic/angular';
 import {PartitaService} from '../../services/partita.service';
 import {Partita} from '../../model/partita.model';
 import {Observable} from 'rxjs';
-import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
+import {DettaglioPartitaComponent} from '../../components/dettaglio-partita.component';
 
 
 @Component({
@@ -22,6 +22,9 @@ export class PartitePage implements OnInit {
 
 
     ngOnInit() {
+    }
+
+    ionViewWillEnter() {
         this.partite$ = this.partitaService.lista();
     }
 
@@ -40,7 +43,7 @@ export class PartitePage implements OnInit {
 
     async apriDettaglio(partita: Partita) {
         const modal = await this.modalController.create({
-            component: DettaglioPartitaPage,
+            component: DettaglioPartitaComponent,
             componentProps: {appParam: partita}
         });
         modal.onDidDismiss().then(() => this.partite$ = this.partitaService.lista());

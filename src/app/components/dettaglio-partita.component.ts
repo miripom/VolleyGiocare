@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Partita} from '../../model/partita.model';
-import {PartitaService} from '../../services/partita.service';
-import {Utente} from '../../model/utente.model';
-import {UtenteService} from '../../services/utente.service';
+import {Partita} from '../model/partita.model';
+import {PartitaService} from '../services/partita.service';
+import {Utente} from '../model/utente.model';
+import {UtenteService} from '../services/utente.service';
 import {ModalController, NavController, NavParams} from '@ionic/angular';
 
 @Component({
     selector: 'app-dettaglio-partita',
-    templateUrl: './dettaglio-partita.page.html',
-    styleUrls: ['./dettaglio-partita.page.scss'],
+    templateUrl: './dettaglio-partita.component.html',
+    styleUrls: ['./dettaglio-partita.component.scss'],
 })
-export class DettaglioPartitaPage implements OnInit {
+export class DettaglioPartitaComponent implements OnInit {
     private partita: Partita;
     private partita$: Observable<Partita>;
     private utente$: BehaviorSubject<Utente>;
@@ -28,7 +28,6 @@ export class DettaglioPartitaPage implements OnInit {
 
     ngOnInit() {
         this.partita = this.navParams.data.appParam;
-        console.log(this.partita.id);
 
         this.utente$ = this.utenteService.getUtente();
         this.partita$ = this.partitaService.findById(this.partita.id);

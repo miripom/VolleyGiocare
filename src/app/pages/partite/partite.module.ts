@@ -8,7 +8,8 @@ import {IonicModule} from '@ionic/angular';
 import {PartitePage} from './partite.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DettaglioPartitaPage} from '../dettaglio-partita/dettaglio-partita.page';
+import {ComponentModule} from '../../components/component.module';
+import {DettaglioPartitaComponent} from "../../components/dettaglio-partita.component";
 
 const routes: Routes = [
     {
@@ -22,11 +23,13 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         IonicModule,
+        ComponentModule,
         TranslateModule.forChild(),
         RouterModule.forChild(routes),
     ],
-    declarations: [PartitePage, DettaglioPartitaPage],
-    entryComponents: [DettaglioPartitaPage]
+    declarations: [PartitePage],
+    entryComponents: [DettaglioPartitaComponent]
+
 })
 export class PartitePageModule {
 }

@@ -75,11 +75,11 @@
           <b> {{'RIMUOVI_PARTECIPAZIONE' | translate}}</b>
         </ion-button>
 
-          <ion-button class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                      size="small" *ngIf="p[0].numero_giocatori<=0 && p[0].id_organizzatore.id != utente$.getValue().id">
+          <ion-label class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
+                      size="small" *ngIf="p[0].numero_giocatori<=0 && p[0].id_organizzatore.id != utente$.getValue().id && this.Ifpartecipa < 0">
             <ion-icon slot="start" name='create'></ion-icon>
             <b> {{'PARTITA_COMPLETA' | translate}}</b>
-          </ion-button>
+          </ion-label>
         </div>
       </ion-card-title>
 
@@ -102,7 +102,7 @@
 
     <ion-item *ngFor="let giocatore of partecipanti$|async" >
       <ion-avatar slot="start">
-        <img src="../../../assets/images/martello.jpg">
+        <img src="../../assets/images/martello.jpg">
       </ion-avatar>
       <ion-label>
         <h2><b>{{giocatore.nome + " " + giocatore.cognome}}</b>, {{giocatore.id_ruolo.nome_ruolo}} </h2>
