@@ -55,7 +55,6 @@ export class AppComponent implements OnInit {
     initTranslate() {
         this.translate.setDefaultLang('it');
         this.translate.use('it');
-        // Set the default language for translation strings, and the current language.
         const linguaPreferita = this.linguaService.getLinguaPreferita();
         this.translate.setDefaultLang(linguaPreferita);
         this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {

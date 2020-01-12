@@ -12,6 +12,7 @@ import {ModalController, NavController, NavParams} from '@ionic/angular';
     styleUrls: ['./dettaglio-partita.component.scss'],
 })
 export class DettaglioPartitaComponent implements OnInit {
+
     private partita: Partita;
     private partita$: Observable<Partita>;
     private utente$: BehaviorSubject<Utente>;
@@ -28,7 +29,6 @@ export class DettaglioPartitaComponent implements OnInit {
 
     ngOnInit() {
         this.partita = this.navParams.data.appParam;
-
         this.utente$ = this.utenteService.getUtente();
         this.partita$ = this.partitaService.findById(this.partita.id);
         this.partecipanti$ = this.partitaService.giocatori(this.partita.id);
@@ -41,11 +41,9 @@ export class DettaglioPartitaComponent implements OnInit {
     async onDelete(partita: Partita) {
         this.partitaService.cancellaPartita(partita.id).subscribe(() => this.partitaService.lista());
         await this.modalController.dismiss();
-
     }
 
     async onPartecipa(partita: Partita) {
-
         this.partitaService.partecipa(partita.id).subscribe();
         await this.modalController.dismiss();
     }

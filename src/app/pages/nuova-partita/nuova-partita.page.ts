@@ -15,6 +15,7 @@ import {AlertController, NavController} from '@ionic/angular';
     styleUrls: ['./nuova-partita.page.scss'],
 })
 export class NuovaPartitaPage implements OnInit {
+
     private newMatchFormModel: FormGroup;
     private utente = new Utente();
     private tipoPartita: Observable<TipologiaPartita[]>;

@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PartitaService} from '../../services/partita.service';
 import {Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
-import {PartitePage} from "../partite/partite.page";
-import {DettaglioPartitaComponent} from "../../components/dettaglio-partita.component";
-import {ModalController} from "@ionic/angular";
+import {DettaglioPartitaComponent} from '../../components/dettaglio-partita.component';
+import {ModalController} from '@ionic/angular';
 
 @Component({
     selector: 'app-mie-partite',
@@ -13,7 +12,7 @@ import {ModalController} from "@ionic/angular";
 })
 export class MiePartitePage implements OnInit {
     private miepartite$: Observable<Partita[]>;
-    private terminate$: Observable<Partita[]>
+    private terminate$: Observable<Partita[]>;
 
     constructor(private partitaService: PartitaService,
                 private modalController: ModalController) {
@@ -34,8 +33,6 @@ export class MiePartitePage implements OnInit {
         });
         modal.onDidDismiss().then(() => this.miepartite$ = this.partitaService.miePartite());
         return await modal.present();
-
     }
-
 
 }

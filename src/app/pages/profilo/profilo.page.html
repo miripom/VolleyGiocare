@@ -8,8 +8,6 @@
 </ion-header>
 
 <ion-content>
-
-<!-- nome giocatore e descrizione-->
     <div>
         <ion-item class="animated fadeInUp ion-no-padding ">
             <ion-avatar class="item-avatar ion-margin-start">
@@ -21,7 +19,6 @@
             </ion-label>
         </ion-item>
     </div>
-
 
     <section>
         <ion-button class="ion-float-end ion-text-center ion-no-margin ion-padding-end" size="small" shape="round"
@@ -56,16 +53,11 @@
             </ion-col>
         </ion-row>
 
-
         <ion-row class="ion-margin-top">
             <ion-col>
                 <div>
                     <ion-text color="primary" class="text12"><b>{{'MEDIA_FEEDBACK' | translate}}</b></ion-text>
-
-<!-- mettere al posto di index la media del giocatore-->
-
                     <ion-chip class="ion-margin" outline color="dark" slot="end">
-
                         <ion-label> <b>{{media}}</b>
                             <ion-icon class="larger" *ngIf="media==0" name="star-outline"></ion-icon>
                             <ion-icon class="larger" *ngIf="media>0&&media<1" name="star-half" color="primary"></ion-icon>
@@ -82,7 +74,7 @@
                             <ion-icon class="larger"*ngIf="media<4" name="star-outline" color="primary"></ion-icon>
                             <ion-icon class="larger"*ngIf="media>4&&media<5" name="star-half" color="primary"></ion-icon>
                             <ion-icon class="larger"*ngIf="media>5||media==5" name="star" color="primary"></ion-icon>
-                            <ion-icon class="larger"*ngIf="media<5" name="star-outline" color="primary"></ion-icon></ion-label>
+                    </ion-label>
                     </ion-chip>
                 </div>
             </ion-col>
@@ -94,8 +86,6 @@
             {{'COMMENTI' | translate}}
             </b>
         </ion-list-header>
-
-
         <ion-item *ngFor="let f of feedback$ | async">
             <ion-avatar slot="start">
                 <img src="../../../assets/images/martello.jpg">
@@ -113,7 +103,6 @@
 
             <ion-label *ngIf="f.commento=='null'">
                 <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
-
                 <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
@@ -121,7 +110,6 @@
                 <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
             </ion-label>
         </ion-item>
-
     </ion-list>
     <ion-infinite-scroll threshold="100px"  (ionInfinite)="loadData($event)">
         <ion-infinite-scroll-content

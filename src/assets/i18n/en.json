@@ -65,6 +65,10 @@
   "DESCRIZIONE_NP": "Description",
   "OKOPTION": "OK",
   "ANNULLA" : "CANCEL",
-  "COMMENTI" : "Comments"
+  "COMMENTI" : "Comments",
+  "VOTATO_GIA" : "You have already voted!",
+  "PARTITA_COMPLETA": "Full match",
+  "GIOCATORI": "Players",
+  "FEEDBACK_TITOLO": "Feedback"
 
 }

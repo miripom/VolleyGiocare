@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {ModalController, NavParams} from '@ionic/angular';
+import {AlertController, ModalController, NavParams} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
@@ -28,8 +28,8 @@ export class FeedbackPage implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private utenteService: UtenteService,
                 private navParams: NavParams,
-                private partitaService: PartitaService
-    ) {
+                private partitaService: PartitaService,
+                private alertController: AlertController) {
 
     }
 
@@ -125,6 +125,17 @@ export class FeedbackPage implements OnInit {
 
         this.partitaService.lasciaFeedback(votazione).subscribe();
         await this.modalController.dismiss();
+        this.presentAlert();
+    }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            message: 'Feedback lasciato!',
+            buttons: [{
+                text: 'Ok',
+                cssClass: 'primary'
+            }]
+        });
+        await alert.present();
     }
 }

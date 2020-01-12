@@ -9,11 +9,8 @@
 </ion-header>
 
 <ion-content>
-
-
  <ion-card class="back cardst ion-margin " *ngIf="(partita$ | async) as p">
     <ion-card-header>
-
       <ion-card-title class="text-dark">
         <ion-item>
         <div>
@@ -46,7 +43,6 @@
         </div>
         </ion-item>
 
-
         <ion-item>
         <div class="ion-margin-top">
           <ion-icon name="book" slot="start" icon="left"></ion-icon>
@@ -54,6 +50,7 @@
           {{p[0].descrizione}}
         </div>
         </ion-item>
+        <br><br>
 
         <div class="ion-text-center">
         <ion-button  *ngIf="p[0].id_organizzatore.id != utente$.getValue().id
@@ -75,11 +72,11 @@
           <b> {{'RIMUOVI_PARTECIPAZIONE' | translate}}</b>
         </ion-button>
 
-          <ion-label class="bordo ion-margin-top ion-margin-end ion-margin-start" slot="center" expand="block" shape="round" color="primary"
-                      size="small" *ngIf="p[0].numero_giocatori<=0 && p[0].id_organizzatore.id != utente$.getValue().id && this.Ifpartecipa < 0">
-            <ion-icon slot="start" name='create'></ion-icon>
+          <ion-label class="ion-margin-top ion-margin-end ion-margin-start" slot="center"  color="danger"
+                       *ngIf="p[0].numero_giocatori<=0 && p[0].id_organizzatore.id != utente$.getValue().id && this.Ifpartecipa <= 0">
             <b> {{'PARTITA_COMPLETA' | translate}}</b>
           </ion-label>
+
         </div>
       </ion-card-title>
 
@@ -97,7 +94,7 @@
 
   <ion-list>
     <ion-list-header>
-      Partecipanti
+      {{'GIOCATORI' | translate}}
     </ion-list-header>
 
     <ion-item *ngFor="let giocatore of partecipanti$|async" >
@@ -109,4 +106,5 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
 </ion-content>

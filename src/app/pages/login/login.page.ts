@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AlertController, LoadingController, NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {LoginAccount, UtenteService} from '../../services/utente.service';
 import {HttpErrorResponse} from '@angular/common/http';
 
@@ -11,13 +11,13 @@ import {HttpErrorResponse} from '@angular/common/http';
     styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
     private loginFormModel: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
                 private navController: NavController,
                 private alertController: AlertController,
                 private utenteService: UtenteService) {
-
     }
 
 
@@ -34,7 +34,6 @@ export class LoginPage implements OnInit {
                 Validators.required
             ])]
         });
-
     }
 
     onRegister() {
@@ -55,9 +54,7 @@ export class LoginPage implements OnInit {
                     this.showLoginError();
                 }
             });
-
         this.navController.navigateRoot('/tabs');
-
     }
 
     async showLoginError() {
@@ -69,6 +66,5 @@ export class LoginPage implements OnInit {
 
         await alert.present();
     }
-
 
 }

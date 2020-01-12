@@ -7,10 +7,8 @@
     </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
     <ion-slides>
-
         <ion-slide>
             <div class="titolo">
                 <b>{{'PARTITE_DA_GIOCARE' | translate}}
@@ -20,22 +18,18 @@
             <ion-list>
                 <ion-card class="back cards " *ngFor="let m of miepartite$ |async">
                     <ion-card-header>
-
                         <ion-card-title class="text-dark">
                             <ion-icon name="clipboard"></ion-icon>
                             {{m.titolo}}
                         </ion-card-title>
-
                         <ion-card-subtitle>
                         </ion-card-subtitle>
-
                     </ion-card-header>
-
                     <ion-card-content>
                         <ion-icon name="calendar" icon="left"></ion-icon>
                         {{(m.data_ora| date:'dd/MM/yyyy')}}
                         <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                        {{m.data_ora|date: 'hh:mm'}}
+                        {{m.data_ora|date: 'HH:mm'}}
                         <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                         {{m.luogo}}
                         <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
@@ -52,11 +46,8 @@
                             </ion-col>
                         </ion-row>
                     </ion-card-content>
-
                 </ion-card>
             </ion-list>
-
-
         </ion-slide>
 
         <ion-slide>
@@ -68,15 +59,12 @@
             <ion-list>
                 <ion-card class="back cardst " *ngFor="let t of terminate$ |async">
                     <ion-card-header>
-
                         <ion-card-title class="text-dark">
                             <ion-icon name="clipboard"></ion-icon>
                             {{t.titolo}}
                         </ion-card-title>
-
                         <ion-card-subtitle>
                         </ion-card-subtitle>
-
                     </ion-card-header>
 
                     <ion-card-content>
@@ -100,11 +88,9 @@
                             </ion-col>
                         </ion-row>
                     </ion-card-content>
-
                 </ion-card>
             </ion-list>
+
         </ion-slide>
-
-
     </ion-slides>
 </ion-content>

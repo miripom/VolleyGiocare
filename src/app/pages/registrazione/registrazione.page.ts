@@ -14,6 +14,7 @@ import {Observable} from 'rxjs';
     styleUrls: ['./registrazione.page.scss'],
 })
 export class RegistrazionePage implements OnInit {
+
     private signUpFormModel: FormGroup;
     private ruolo: Observable<TipologiaRuolo[]>;
 
@@ -75,8 +76,6 @@ export class RegistrazionePage implements OnInit {
                 if (err.ok) {
                     console.log('OK');
                 }
-
-
             }
         );
     }

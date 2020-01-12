@@ -64,5 +64,9 @@
   "DESCRIZIONE_NP": "Descrizione",
   "OKOPTION": "OK",
   "ANNULLA" : "ANNULLA",
-  "COMMENTI" : "Commenti"
+  "COMMENTI" : "Commenti",
+  "VOTATO_GIA": "Hai già votato il giocatore!",
+  "PARTITA_COMPLETA": "Partita al completo!",
+  "GIOCATORI": "Giocatori",
+  "FEEDBACK_TITOLO": "Feedback"
 }

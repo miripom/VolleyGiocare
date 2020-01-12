@@ -1,7 +1,6 @@
 import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Storage} from '@ionic/storage';
-
 import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -62,10 +61,6 @@ export class UtenteService {
         this.utente$.next(null);
         this.storage.remove(AUTH_TOKEN);
         this.storage.remove(UTENTE_STORAGE);
-
-
-        // Nessuna chiamata al server perche' JWT e' stateless quindi non prevede alcun logout.
-        // Per gestirlo si dovrebbe fare lato server una blacklist.
     }
 
     getUtente(): BehaviorSubject<Utente> {
@@ -114,7 +109,7 @@ export class UtenteService {
 
     }
 
-    getMedia(){
+    getMedia() {
         return this.http.get(URL.GETMEDIA);
     }
 

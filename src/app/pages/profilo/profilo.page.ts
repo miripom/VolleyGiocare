@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
-import {AlertController, IonInfiniteScroll, NavController} from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 import {Feedback} from '../../model/feedback.model';
 
 
@@ -12,6 +12,7 @@ import {Feedback} from '../../model/feedback.model';
     styleUrls: ['./profilo.page.scss'],
 })
 export class ProfiloPage implements OnInit {
+
     private feedback$: Observable<Feedback[]>;
     private utente$: BehaviorSubject<Utente>;
     private media;
@@ -31,7 +32,6 @@ export class ProfiloPage implements OnInit {
 
     loadData(event) {
         setTimeout(() => {
-            console.log('Done');
             event.target.complete();
         }, 500);
     }
@@ -48,7 +48,7 @@ export class ProfiloPage implements OnInit {
                 ],
                 buttons: [
                     {
-                        text: 'Cancel',
+                        text: 'Annulla',
                         role: 'cancel'
                     },
                     {
@@ -58,7 +58,6 @@ export class ProfiloPage implements OnInit {
                                 this.utente$.getValue().descrizione = res.body['data'];
                             });
                         }
-
                     }
                 ]
             }

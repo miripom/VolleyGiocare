@@ -17,8 +17,7 @@ export class GiocatoriPage implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute,
                 private partitaService: PartitaService,
-                private modalController: ModalController
-    ) {
+                private modalController: ModalController) {
     }
 
     ngOnInit() {
@@ -38,7 +37,5 @@ export class GiocatoriPage implements OnInit {
             componentProps: {appParam: giocatore, partitaParam: partita}
         });
         return await modal.present();
-
-
     }
 }

@@ -17,22 +17,18 @@
     <ion-list>
         <ion-card class="back ion-margin cards " *ngFor="let p of partite$ |async">
             <ion-card-header>
-
                 <ion-card-title class="text-dark ion-text-center">
                     <ion-icon name="clipboard"></ion-icon>
                     {{p.titolo}}
                 </ion-card-title>
-
                 <ion-card-subtitle>
                 </ion-card-subtitle>
-
             </ion-card-header>
-
             <ion-card-content class="ion-text-center">
                 <ion-icon name="calendar" icon="left"></ion-icon>
                 {{(p.data_ora| date:'dd/MM/yyyy')}}
                 <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                {{p.data_ora|date: 'hh:mm'}}
+                {{p.data_ora|date: 'HH:mm'}}
                 <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                 {{p.luogo}}
                 <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
@@ -48,12 +44,9 @@
                     </ion-col>
                 </ion-row>
             </ion-card-content>
-
         </ion-card>
     </ion-list>
 
-
-    <!-- fab placed to the top end -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="bordo">
         <ion-fab-button (click)="nuovaPartita()">
             <ion-icon name="add"></ion-icon>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary" class="ion-text-center">
-    <ion-title>Feedback</ion-title>
+    <ion-title>{{'FEEDBACK_TITOLO' | translate}}</ion-title>
 
     <ion-button slot="end"  size="small"
                 (click)="chiudiModal()">
@@ -47,7 +47,7 @@
     <ion-button class="bordo ion-margin " shape="round" color="primary" expand="block"
                 size="small"  type="submit" (click)="reset()">
       <ion-icon slot="start" name='medal'></ion-icon>
-      <b>ANNULLA</b>
+      <b>{{'ANNULLA' | translate}}</b>
     </ion-button>
   </ion-col>
 
@@ -74,11 +74,17 @@
         <ion-icon class="larger"*ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
         <ion-icon class="larger" *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
       </div>
-<div>
-      <label> IL TUO VOTO</label>
-  </div>
     </ion-item>
     </form>
+    <ion-grid>
+      <ion-row class="ion-margin">
+          <ion-text class="text-dark ion-margin ion-text-center">
+            <b>{{'VOTATO_GIA' | translate}}</b>
+          </ion-text>
+      </ion-row>
+    </ion-grid>
+
+
   </div>
 </ion-content>
 
