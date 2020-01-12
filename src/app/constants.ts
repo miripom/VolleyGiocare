@@ -30,7 +30,8 @@ export const URL = {
     CONTROLLOPARTECIPAZIONE: URL_BASE + '/checkPartecipation',
     FEEDBACKPARTITA: URL_BASE + '/feedbackP',
     VOTAZIONE: URL_BASE + '/votazione',
-    COMMENTI: URL_BASE + '/commenti'
+    COMMENTI: URL_BASE + '/commenti',
+    CHECKFEEDBACK: URL_BASE + '/checkFeedback'
 
 
 

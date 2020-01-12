@@ -5,13 +5,7 @@ import {URL} from '../constants';
 import {Observable} from 'rxjs';
 import {TipologiaPartita} from '../model/tipologiaPartita.model';
 import {Utente} from '../model/utente.model';
-
-export interface Feedback {
-    commento: string;
-    stelle: string;
-    giocatoreVotato: Utente;
-    partita: Partita;
-}
+import {Feedback} from "../model/feedback.model";
 
 @Injectable({
     providedIn: 'root'
@@ -84,12 +78,22 @@ export class PartitaService {
     lasciaFeedback(feedback: Feedback) {
         const params = new HttpParams()
             .set('commento', feedback.commento)
-            .set('voto', feedback.stelle)
-            .set('id_giocatore_votato', feedback.giocatoreVotato.toString())
-            .set('id_partita', feedback.partita.id.toString());
+            .set('voto', feedback.voto.toString())
+            .set('id_giocatore_votato', feedback.id_giocatore_votato.id.toString())
+            .set('id_partita', feedback.id_partita.id.toString());
         console.log(params);
 
         return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
+    }
+
+    checkFeedback(partita: Partita, giocatore: Utente): Observable<Feedback>{
+        const params = new HttpParams()
+            .set('id_giocatore', giocatore.id.toString())
+            .set('id_partita', partita.id.toString());
+
+        return this.http.post<Feedback>(URL.CHECKFEEDBACK, params);
+
+
     }
 
 }

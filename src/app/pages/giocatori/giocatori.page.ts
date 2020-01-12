@@ -35,7 +35,7 @@ export class GiocatoriPage implements OnInit {
         const modal = await this.modalController.create({
             component: FeedbackPage,
             cssClass: 'my-custom-modal-css',
-            componentProps: {appParam: giocatore.id, partitaParam: partita}
+            componentProps: {appParam: giocatore, partitaParam: partita}
         });
         return await modal.present();
 

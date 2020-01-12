@@ -2,10 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ModalController, NavParams} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
-import {BehaviorSubject} from 'rxjs';
 import {UtenteService} from '../../services/utente.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {Feedback, PartitaService} from '../../services/partita.service';
+import { PartitaService} from '../../services/partita.service';
+import {Partita} from '../../model/partita.model';
+import {Observable} from 'rxjs';
+import {Feedback} from '../../model/feedback.model';
 
 @Component({
     selector: 'app-feedback',
@@ -16,6 +18,9 @@ export class FeedbackPage implements OnInit {
     private votazioneFormModel: FormGroup;
     private color: any = {color1: '', color2: '', color3: '', color4: '', color5: ''};
     private numeroStelle: number;
+    private giocatore: Utente;
+    private partita: Partita;
+    private feedback: Observable<Feedback>;
 
     constructor(private formBuilder: FormBuilder,
                 private modalController: ModalController,
@@ -33,6 +38,15 @@ export class FeedbackPage implements OnInit {
             commento: new FormControl(),
             stelle: new FormControl()
         });
+
+        this.giocatore = this.navParams.data.appParam;
+        this.partita = this.navParams.data.partitaParam;
+
+        this.feedback = this.partitaService.checkFeedback(this.partita, this.giocatore);
+
+
+
+
     }
 
     async chiudiModal() {
@@ -99,11 +113,10 @@ export class FeedbackPage implements OnInit {
         this.votazioneFormModel.reset();
     }
 
-   async vota() {
+    async vota() {
         const votazione: Feedback = this.votazioneFormModel.value;
-        votazione.giocatoreVotato = this.navParams.data.appParam;
-        votazione.partita = this.navParams.data.partitaParam;
-        console.log(votazione.giocatoreVotato);
+        votazione.id_giocatore_votato = this.navParams.data.appParam;
+        votazione.id_partita = this.navParams.data.partitaParam;
 
         this.partitaService.lasciaFeedback(votazione).subscribe();
         await this.modalController.dismiss();

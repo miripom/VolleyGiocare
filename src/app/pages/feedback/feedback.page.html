@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content>
-
+  <div *ngIf="!(feedback|async) as f">
   <form [formGroup]="votazioneFormModel" class="list-form">
     <ion-item class="text08">
       <ion-icon name="quote" class="ion-padding-end ion-align-items-start ion-no-margin" ></ion-icon>
@@ -36,7 +36,7 @@
 
 
 
-  <!--mettere funzione di voto-->
+
 <ion-row>
   <ion-col class="ion-text-center">
   <ion-button class="bordo ion-margin " shape="round" color="primary" expand="block" (click)="vota()"
@@ -54,5 +54,31 @@
 </ion-row>
 
   </form>
+</div>
+
+  <div *ngIf="(feedback|async) as f">
+    <form [formGroup]="votazioneFormModel" class="list-form">
+    <ion-item class="text08">
+      <ion-icon name="quote" class="ion-padding-end ion-align-items-start ion-no-margin" ></ion-icon>
+      <ion-textarea *ngIf="f[0].commento != 'null'" placeholder="{{f[0].commento}}" class="ion-padding-start"  disabled="true"></ion-textarea>
+      <ion-textarea *ngIf="f[0].commento == 'null'" placeholder=" " class="ion-padding-start"  disabled="true"></ion-textarea>
+    </ion-item>
+
+    <ion-item class="text08">
+      <ion-icon name="ribbon" class="ion-padding-end ion-align-items-start" ></ion-icon>
+
+      <div class="ion-text-center" >
+        <ion-icon class="larger"*ngIf="f[0].voto>1||f[0].voto==1" name="star" color="primary"></ion-icon>
+        <ion-icon class="larger"*ngIf="f[0].voto>2||f[0].voto==2" name="star" color="primary"></ion-icon>
+        <ion-icon class="larger"*ngIf="f[0].voto>3||f[0].voto==3" name="star" color="primary"></ion-icon>
+        <ion-icon class="larger"*ngIf="f[0].voto>4||f[0].voto==4" name="star" color="primary"></ion-icon>
+        <ion-icon class="larger" *ngIf="f[0].voto>5||f[0].voto==5" name="star" color="primary"></ion-icon>
+      </div>
+<div>
+      <label> IL TUO VOTO</label>
+  </div>
+    </ion-item>
+    </form>
+  </div>
 </ion-content>
 
