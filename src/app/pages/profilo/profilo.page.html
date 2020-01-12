@@ -40,7 +40,7 @@
                         <ion-avatar slot="start">
                             <img src="../../../assets/images/martello.jpg">
                         </ion-avatar>
-                        <ion-label><b>{{utente$.getValue().ruolo.nome_ruolo.toUpperCase()}}</b></ion-label>
+                        <ion-label><b>{{utente$.getValue().id_ruolo.nome_ruolo.toUpperCase()}}</b></ion-label>
                     </ion-chip>
                 </div>
             </ion-col>
@@ -66,21 +66,23 @@
 
                     <ion-chip class="ion-margin" outline color="dark" slot="end">
 
-                        <ion-label><b>{{numero}}    </b> <ion-icon *ngIf="index==0" name="star-outline"></ion-icon>
-                            <ion-icon *ngIf="index>0&&index<1" name="star-half" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>1||index==1" name="star" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index<1" name="star-outline" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>1&&index<2" name="star-half" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>2||index==2" name="star" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index<2" name="star-outline" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>2&&index<3" name="star-half" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>3||index==3" name="star" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index<3" name="star-outline" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>3&&index<4" name="star-half" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>4||index==4" name="star" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index<4" name="star-outline" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>4&&index<5" name="star-half" color="primary"></ion-icon>
-                            <ion-icon *ngIf="index>5||index==5" name="star" color="primary"></ion-icon></ion-label>
+                        <ion-label> <b>{{media}}</b>
+                            <ion-icon class="larger" *ngIf="media==0" name="star-outline"></ion-icon>
+                            <ion-icon class="larger" *ngIf="media>0&&media<1" name="star-half" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>1||media==1" name="star" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media<1" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>1&&media<2" name="star-half" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>2||media==2" name="star" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media<2" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>2&&media<3" name="star-half" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>3||media==3" name="star" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media<3" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>3&&media<4" name="star-half" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>4||media==4" name="star" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media<4" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>4&&media<5" name="star-half" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media>5||media==5" name="star" color="primary"></ion-icon>
+                            <ion-icon class="larger"*ngIf="media<5" name="star-outline" color="primary"></ion-icon></ion-label>
                     </ion-chip>
                 </div>
             </ion-col>
@@ -88,8 +90,9 @@
     </ion-grid>
 
     <ion-list>
-        <ion-list-header>
-            Commenti recenti
+        <ion-list-header><b>
+            {{'COMMENTI' | translate}}
+            </b>
         </ion-list-header>
 
 

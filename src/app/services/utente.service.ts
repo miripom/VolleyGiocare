@@ -114,4 +114,8 @@ export class UtenteService {
 
     }
 
+    getMedia(){
+        return this.http.get(URL.GETMEDIA);
+    }
+
 }

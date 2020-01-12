@@ -31,7 +31,8 @@ export const URL = {
     FEEDBACKPARTITA: URL_BASE + '/feedbackP',
     VOTAZIONE: URL_BASE + '/votazione',
     COMMENTI: URL_BASE + '/commenti',
-    CHECKFEEDBACK: URL_BASE + '/checkFeedback'
+    CHECKFEEDBACK: URL_BASE + '/checkFeedback',
+    GETMEDIA: URL_BASE + '/media'
 
 
 

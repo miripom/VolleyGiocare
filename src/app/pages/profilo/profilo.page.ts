@@ -14,25 +14,19 @@ import {Feedback} from '../../model/feedback.model';
 export class ProfiloPage implements OnInit {
     private feedback$: Observable<Feedback[]>;
     private utente$: BehaviorSubject<Utente>;
-    private infiniteScroll: IonInfiniteScroll;
-    private feedback;
-    private index = 0;
-    private i;
-    uno = 0;
-    due = 0;
-    tre = 0;
-    quattro = 0;
-    cinque = 0;
-    private voti: Array<number> = [1, 1, 1, 1, 4, 1, 5, 5, 5, 4, 2, 2, 2, 1, 1];
-    private numero: string;
-    private data: Array<string> = ['ciao', 'a', 'b', 'c', 'd', 'e'];
+    private media;
 
-    constructor(private utenteService: UtenteService, private navCtrl: NavController, private alertController: AlertController) {
+    constructor(private utenteService: UtenteService,
+                private navCtrl: NavController,
+                private alertController: AlertController) {
     }
 
     ngOnInit() {
         this.feedback$ = this.utenteService.listaCommenti();
         this.utente$ = this.utenteService.getUtente();
+        this.utenteService.getMedia().subscribe(res => {
+            this.media = res;
+        });
     }
 
     loadData(event) {
