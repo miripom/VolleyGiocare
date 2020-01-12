@@ -8,6 +8,8 @@
 </ion-header>
 
 <ion-content>
+
+<!-- nome giocatore e descrizione-->
     <div>
         <ion-item class="animated fadeInUp ion-no-padding ">
             <ion-avatar class="item-avatar ion-margin-start">
@@ -19,6 +21,8 @@
             </ion-label>
         </ion-item>
     </div>
+
+
     <section>
         <ion-button class="ion-float-end ion-text-center ion-no-margin ion-padding-end" size="small" shape="round"
                     color="primary" (click)="update()" tappable>
@@ -52,14 +56,12 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <br><br>
 
 
-    <ion-label class="ion-margin-start ion-padding-start" color="primary" > {{'FEEDBACK' | translate}}</ion-label>
+   <!-- <ion-text class="text12 ion-margin" color="primary" > {{'FEEDBACK' | translate}}</ion-text>
     <ion-grid>
-        
-
-
-       <!-- <ion-row>
+        <ion-row>
             <ion-col>
                 <ion-item lines="none">
                     <div class="ion-margin-start">
@@ -80,19 +82,22 @@
                         <ion-icon *ngIf="index>4&&index<5" name="star-half" color="primary"></ion-icon>
                         <ion-icon *ngIf="index>5||index==5" name="star" color="primary"></ion-icon>
                         <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
-                            <p class="text08"> {{'VALUTAZIONI' | translate}}: {{i}}</p>
+                            <p class="text08">recensioni: {{i}}</p>
                         </div>
                     </div>
                 </ion-item>
             </ion-col>
             <ion-col>
+
             </ion-col>
-        </ion-row>-->
-    </ion-grid>
+        </ion-row>
+    </ion-grid> -->
+
     <ion-list id="list">
         <ion-list-header>
             Commenti recenti
         </ion-list-header>
+
 
         <ion-item *ngFor="let f of feedback$ | async">
             <ion-avatar slot="start">
@@ -101,19 +106,11 @@
             <ion-label *ngIf="f.commento!='null'">
                 <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
                 <h3>{{f.commento}}</h3>
-                <ion-icon *ngIf="f.voto>0&&f.voto<1" name="star-half" color="primary"></ion-icon>
+
                 <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<1" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>1&&f.voto<2" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<2" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>2&&f.voto<3" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<3" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>3&&f.voto<4" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<4" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>4&&f.voto<5" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
             </ion-label>
 
