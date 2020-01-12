@@ -22,9 +22,6 @@ export class GiocatoriPage implements OnInit {
     }
 
     ngOnInit() {
-    }
-
-    ionViewWillEnter() {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.giocatori$ = this.partitaService.findGiocatori(parseInt(params.get('id'), 0));
         });
@@ -38,8 +35,10 @@ export class GiocatoriPage implements OnInit {
         const modal = await this.modalController.create({
             component: FeedbackPage,
             cssClass: 'my-custom-modal-css',
-            componentProps: {appParam: giocatore.id, partitaId: partita}
+            componentProps: {appParam: giocatore.id, partitaParam: partita}
         });
         return await modal.present();
+
+
     }
 }

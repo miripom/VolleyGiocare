@@ -10,6 +10,4 @@ export class Utente {
     partite_totali: number;
     telefono: string;
     descrizione: string;
-
-    voto: number;
 }

@@ -6,7 +6,8 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {TipologiaRuolo} from "../model/tipologiaRuolo.model";
+import {TipologiaRuolo} from '../model/tipologiaRuolo.model';
+import {Feedback} from '../model/feedback.model';
 
 
 export interface LoginAccount {
@@ -106,6 +107,11 @@ export class UtenteService {
             .set('descrizione', descrizione);
 
         return this.http.post<Utente>(URL.AGGIUNGIDESCRIZIONE, params, {observe: 'response'});
+    }
+
+    listaCommenti(): Observable<Feedback[]> {
+        return this.http.get<Feedback[]>(URL.COMMENTI);
+
     }
 
 }

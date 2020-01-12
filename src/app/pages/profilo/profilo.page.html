@@ -52,68 +52,88 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <br><br>
-    <ion-label class="ion-margin-start" color="light"><b> Valutazioni e recensioni</b></ion-label>
+
+
+    <ion-label class="ion-margin-start ion-padding-start" color="primary" > {{'FEEDBACK' | translate}}</ion-label>
     <ion-grid>
-        <ion-row>
+        
+
+
+       <!-- <ion-row>
             <ion-col>
                 <ion-item lines="none">
-                    <div margin-start="50px">
-                        <p ion-text margin-start class="text30">{{numero}}</p>
+                    <div class="ion-margin-start">
+                        <p class="text30 ion-margin-start">{{numero}}</p>
                         <ion-icon *ngIf="index==0" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>0&&index<1" name="star-half"></ion-icon>
-                        <ion-icon *ngIf="index>1||index==1" name="star"></ion-icon>
-                        <ion-icon *ngIf="index<1" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>1&&index<2" name="star-half"></ion-icon>
-                        <ion-icon *ngIf="index>2||index==2" name="star"></ion-icon>
-                        <ion-icon *ngIf="index<2" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>2&&index<3" name="star-half"></ion-icon>
-                        <ion-icon *ngIf="index>3||index==3" name="star"></ion-icon>
-                        <ion-icon *ngIf="index<3" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>3&&index<4" name="star-half"></ion-icon>
-                        <ion-icon *ngIf="index>4||index==4" name="star"></ion-icon>
-                        <ion-icon *ngIf="index<4" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>4&&index<5" name="star-half"></ion-icon>
-                        <ion-icon *ngIf="index>5||index==5" name="star"></ion-icon>
+                        <ion-icon *ngIf="index>0&&index<1" name="star-half" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>1||index==1" name="star" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index<1" name="star-outline" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>1&&index<2" name="star-half" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>2||index==2" name="star" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index<2" name="star-outline" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>2&&index<3" name="star-half" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>3||index==3" name="star" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index<3" name="star-outline" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>3&&index<4" name="star-half" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>4||index==4" name="star" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index<4" name="star-outline" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>4&&index<5" name="star-half" color="primary"></ion-icon>
+                        <ion-icon *ngIf="index>5||index==5" name="star" color="primary"></ion-icon>
                         <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
-                            <p class="text08">recensioni: {{i}}</p>
+                            <p class="text08"> {{'VALUTAZIONI' | translate}}: {{i}}</p>
                         </div>
                     </div>
                 </ion-item>
             </ion-col>
             <ion-col>
-                <ol class="ion-no-padding">
-                    <li value="5">
-                        <ion-progress-bar [value]="cinque" color="light"></ion-progress-bar>
-                    </li>
-                    <li value="4">
-                        <ion-progress-bar [value]="quattro" color="light"></ion-progress-bar>
-                    </li>
-                    <li value="3">
-                        <ion-progress-bar [value]="tre" color="light"></ion-progress-bar>
-                    </li>
-                    <li value="2">
-                        <ion-progress-bar [value]="due" color="light"></ion-progress-bar>
-                    </li>
-                    <li value="1">
-                        <ion-progress-bar [value]="uno" color="light"></ion-progress-bar>
-                    </li>
-                </ol>
             </ion-col>
-        </ion-row>
+        </ion-row>-->
     </ion-grid>
     <ion-list id="list">
         <ion-list-header>
             Commenti recenti
         </ion-list-header>
 
-        <ion-item>
+        <ion-item *ngFor="let f of feedback$ | async">
             <ion-avatar slot="start">
+                <img src="../../../assets/images/martello.jpg">
             </ion-avatar>
-            <ion-label>
-                <h2><b>Mario</b></h2>
-                <h3>Buon Giocatore!</h3>
-                <p>Nella partita ha giocato bene...</p>
+            <ion-label *ngIf="f.commento!='null'">
+                <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
+                <h3>{{f.commento}}</h3>
+                <ion-icon *ngIf="f.voto>0&&f.voto<1" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<1" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1&&f.voto<2" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<2" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2&&f.voto<3" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<3" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3&&f.voto<4" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<4" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4&&f.voto<5" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
+            </ion-label>
+
+            <ion-label *ngIf="f.commento=='null'">
+                <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
+
+                <ion-icon *ngIf="f.voto>0&&f.voto<1" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<1" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1&&f.voto<2" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<2" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2&&f.voto<3" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<3" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3&&f.voto<4" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto<4" name="star-outline" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4&&f.voto<5" name="star-half" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
             </ion-label>
         </ion-item>
 

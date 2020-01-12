@@ -53,5 +53,7 @@
   "GIOCATORI_TITOLO" : "Giocatori",
   "VOTA": "VOTA!",
   "RANGE": "Da 1 a 5",
-  "GIOCATORI": "Chi ha giocato con te"
+  "GIOCATORI": "Chi ha giocato con te",
+  "FEEDBACK": "Feedback",
+  "VALUTAZIONI" : "valutazioni"
 }

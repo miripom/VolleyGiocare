@@ -15,8 +15,6 @@ import {Feedback, PartitaService} from '../../services/partita.service';
 export class FeedbackPage implements OnInit {
     private votazioneFormModel: FormGroup;
     private color: any = {color1: '', color2: '', color3: '', color4: '', color5: ''};
-    private giocatore: Utente;
-    private utente$: BehaviorSubject<Utente>;
     private numeroStelle: number;
 
     constructor(private formBuilder: FormBuilder,
@@ -104,7 +102,7 @@ export class FeedbackPage implements OnInit {
    async vota() {
         const votazione: Feedback = this.votazioneFormModel.value;
         votazione.giocatoreVotato = this.navParams.data.appParam;
-        votazione.partita = this.navParams.data.partitaId;
+        votazione.partita = this.navParams.data.partitaParam;
         console.log(votazione.giocatoreVotato);
 
         this.partitaService.lasciaFeedback(votazione).subscribe();

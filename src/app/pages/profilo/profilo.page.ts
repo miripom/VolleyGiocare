@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UtenteService} from '../../services/utente.service';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import {AlertController, IonInfiniteScroll, NavController} from '@ionic/angular';
+import {Feedback} from '../../model/feedback.model';
 
 
 @Component({
@@ -11,8 +12,10 @@ import {AlertController, IonInfiniteScroll, NavController} from '@ionic/angular'
     styleUrls: ['./profilo.page.scss'],
 })
 export class ProfiloPage implements OnInit {
+    private feedback$: Observable<Feedback[]>;
     private utente$: BehaviorSubject<Utente>;
     private infiniteScroll: IonInfiniteScroll;
+    private feedback;
     private index = 0;
     private i;
     uno = 0;
@@ -20,7 +23,7 @@ export class ProfiloPage implements OnInit {
     tre = 0;
     quattro = 0;
     cinque = 0;
-    private voti: Array<number> = [3, 5, 5, 3, 4, 5, 5, 5, 5, 4, 2, 2, 2, 1, 1];
+    private voti: Array<number> = [1, 1, 1, 1, 4, 1, 5, 5, 5, 4, 2, 2, 2, 1, 1];
     private numero: string;
     private data: Array<string> = ['ciao', 'a', 'b', 'c', 'd', 'e'];
 
@@ -28,6 +31,9 @@ export class ProfiloPage implements OnInit {
     }
 
     ngOnInit() {
+        this.feedback$ = this.utenteService.listaCommenti();
+
+
         for (this.i = 0; this.i < this.voti.length; this.i++) {
             this.index = this.index + this.voti[this.i];
             if (this.voti[this.i] === 1) {

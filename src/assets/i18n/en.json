@@ -55,6 +55,8 @@
   "GIOCATORI_TITOLO" : "Players",
   "VOTA" : "RATE!",
   "RANGE": "From 1 to 5",
-  "GIOCATORI": "Chi ha giocato con te"
+  "GIOCATORI": "Chi ha giocato con te",
+  "FEEDBACK": "Feedback",
+  "VALUTAZIONI" : "total rating"
 
 }
