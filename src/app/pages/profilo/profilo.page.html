@@ -55,45 +55,39 @@
                 </div>
             </ion-col>
         </ion-row>
-    </ion-grid>
-    <br><br>
 
 
-   <!-- <ion-text class="text12 ion-margin" color="primary" > {{'FEEDBACK' | translate}}</ion-text>
-    <ion-grid>
-        <ion-row>
+        <ion-row class="ion-margin-top">
             <ion-col>
-                <ion-item lines="none">
-                    <div class="ion-margin-start">
-                        <p class="text30 ion-margin-start">{{numero}}</p>
-                        <ion-icon *ngIf="index==0" name="star-outline"></ion-icon>
-                        <ion-icon *ngIf="index>0&&index<1" name="star-half" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>1||index==1" name="star" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index<1" name="star-outline" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>1&&index<2" name="star-half" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>2||index==2" name="star" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index<2" name="star-outline" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>2&&index<3" name="star-half" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>3||index==3" name="star" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index<3" name="star-outline" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>3&&index<4" name="star-half" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>4||index==4" name="star" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index<4" name="star-outline" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>4&&index<5" name="star-half" color="primary"></ion-icon>
-                        <ion-icon *ngIf="index>5||index==5" name="star" color="primary"></ion-icon>
-                        <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
-                            <p class="text08">recensioni: {{i}}</p>
-                        </div>
-                    </div>
-                </ion-item>
-            </ion-col>
-            <ion-col>
+                <div>
+                    <ion-text color="primary" class="text12"><b>{{'MEDIA_FEEDBACK' | translate}}</b></ion-text>
 
+<!-- mettere al posto di index la media del giocatore-->
+
+                    <ion-chip class="ion-margin" outline color="dark" slot="end">
+
+                        <ion-label><b>{{numero}}    </b> <ion-icon *ngIf="index==0" name="star-outline"></ion-icon>
+                            <ion-icon *ngIf="index>0&&index<1" name="star-half" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>1||index==1" name="star" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index<1" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>1&&index<2" name="star-half" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>2||index==2" name="star" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index<2" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>2&&index<3" name="star-half" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>3||index==3" name="star" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index<3" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>3&&index<4" name="star-half" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>4||index==4" name="star" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index<4" name="star-outline" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>4&&index<5" name="star-half" color="primary"></ion-icon>
+                            <ion-icon *ngIf="index>5||index==5" name="star" color="primary"></ion-icon></ion-label>
+                    </ion-chip>
+                </div>
             </ion-col>
         </ion-row>
-    </ion-grid> -->
+    </ion-grid>
 
-    <ion-list id="list">
+    <ion-list>
         <ion-list-header>
             Commenti recenti
         </ion-list-header>
@@ -117,28 +111,19 @@
             <ion-label *ngIf="f.commento=='null'">
                 <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
 
-                <ion-icon *ngIf="f.voto>0&&f.voto<1" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<1" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>1&&f.voto<2" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<2" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>2&&f.voto<3" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<3" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>3&&f.voto<4" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto<4" name="star-outline" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>4&&f.voto<5" name="star-half" color="primary"></ion-icon>
                 <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
             </ion-label>
         </ion-item>
 
     </ion-list>
-    <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll threshold="100px"  (ionInfinite)="loadData($event)">
         <ion-infinite-scroll-content
                 loadingSpinner="bubbles"
-                loadingText="Loading more data...">
+                loadingText="{{'LOADING' | translate}}">
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 </ion-content>

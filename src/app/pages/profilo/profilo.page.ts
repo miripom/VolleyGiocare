@@ -32,34 +32,6 @@ export class ProfiloPage implements OnInit {
 
     ngOnInit() {
         this.feedback$ = this.utenteService.listaCommenti();
-
-
-        for (this.i = 0; this.i < this.voti.length; this.i++) {
-            this.index = this.index + this.voti[this.i];
-            if (this.voti[this.i] === 1) {
-                this.uno++;
-            }
-            if (this.voti[this.i] === 2) {
-                this.due++;
-            }
-            if (this.voti[this.i] === 3) {
-                this.tre++;
-            }
-            if (this.voti[this.i] === 4) {
-                this.quattro++;
-            }
-            if (this.voti[this.i] === 5) {
-                this.cinque++;
-            }
-        }
-        this.uno = this.uno / 10;
-        this.due = this.due / 10;
-        this.tre = this.tre / 10;
-        this.quattro = this.quattro / 10;
-        this.cinque = this.cinque / 10;
-        this.numero = (this.index / this.i).toFixed(1);
-        this.index = this.index / this.i;
-
         this.utente$ = this.utenteService.getUtente();
     }
 
@@ -67,18 +39,9 @@ export class ProfiloPage implements OnInit {
         setTimeout(() => {
             console.log('Done');
             event.target.complete();
-
-            // App logic to determine if all data is loaded
-            // and disable the infinite scroll
-            if (this.data.length === 1000) {
-                event.target.disabled = true;
-            }
         }, 500);
     }
 
-    toggleInfiniteScroll() {
-        this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-    }
 
     async update() {
 

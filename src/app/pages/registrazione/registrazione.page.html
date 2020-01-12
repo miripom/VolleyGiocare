@@ -40,8 +40,8 @@
     <ion-list>
       <ion-item>
         <ion-label>{{'RUOLO_PREFERITO' | translate}}</ion-label>
-        <ion-select placeholder="{{'SELEZIONA' | translate}}" formControlName="ruolo">
-          <ion-select-option *ngFor="let r of ruolo | async " [value]="r.nome_ruolo">{{r.nome_ruolo.toUpperCase() | translate}}</ion-select-option>
+        <ion-select placeholder="{{'SELEZIONA' | translate}}" formControlName="ruolo" [okText]="'OKOPTION' | translate" [cancelText]="'ANNULLA' | translate">
+          <ion-select-option *ngFor="let r of ruolo | async " [value]="r.nome_ruolo" >{{r.nome_ruolo.toUpperCase() | translate}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

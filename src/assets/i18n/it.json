@@ -55,5 +55,13 @@
   "RANGE": "Da 1 a 5",
   "GIOCATORI": "Chi ha giocato con te",
   "FEEDBACK": "Feedback",
-  "VALUTAZIONI" : "valutazioni"
+  "VALUTAZIONI" : "valutazioni",
+  "MEDIA_FEEDBACK": "Media feedback",
+  "LOADING": "Caricamento...",
+  "TITOLO_NP" : "Titolo",
+  "LUOGO_NP": "Luogo",
+  "GIOCATORI_RICHIESTI_NP": "Giocatori richiesti",
+  "DESCRIZIONE_NP": "Descrizione",
+  "OKOPTION": "OK",
+  "ANNULLA" : "ANNULLA"
 }

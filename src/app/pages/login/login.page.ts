@@ -22,6 +22,9 @@ export class LoginPage implements OnInit {
 
 
     ngOnInit() {
+        if (this.utenteService.isLogged()) {
+            this.navController.navigateRoot('/tabs');
+        }
 
         this.loginFormModel = this.formBuilder.group({
             email: ['', Validators.compose([

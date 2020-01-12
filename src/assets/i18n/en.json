@@ -57,6 +57,13 @@
   "RANGE": "From 1 to 5",
   "GIOCATORI": "Chi ha giocato con te",
   "FEEDBACK": "Feedback",
-  "VALUTAZIONI" : "total rating"
+  "VALUTAZIONI" : "total rating",
+  "LOADING": "Loading...",
+  "TITOLO_NP" : "Title",
+  "LUOGO_NP": "Place",
+  "GIOCATORI_RICHIESTI_NP": "Players required",
+  "DESCRIZIONE_NP": "Description",
+  "OKOPTION": "OK",
+  "ANNULLA" : "CANCEL"
 
 }

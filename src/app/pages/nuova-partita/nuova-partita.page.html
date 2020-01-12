@@ -15,24 +15,24 @@
 
             <ion-item class="ion-padding-end ion-align-items-start">
                 <ion-icon name="bookmark" slot="start"></ion-icon>
-                <ion-input placeholder="Title" formControlName="titolo"></ion-input>
+                <ion-input placeholder="{{'TITOLO_NP' | translate}}" formControlName="titolo"></ion-input>
             </ion-item>
 
             <ion-item class="ion-padding-end ion-align-items-start">
                 <ion-icon name="pin" slot="start"></ion-icon>
-                <ion-input placeholder="Location" formControlName="luogo"></ion-input>
+                <ion-input placeholder="{{'LUOGO_NP' | translate}}" formControlName="luogo"></ion-input>
             </ion-item>
 
 
             <ion-item class="ion-padding-end ion-align-items-start">
                 <ion-icon name="person" slot="start"></ion-icon>
-                <ion-input placeholder="Giocatori richiesti" formControlName="giocatori_richiesti" type="number"></ion-input>
+                <ion-input placeholder="{{'GIOCATORI_RICHIESTI_NP'|translate}}" formControlName="giocatori_richiesti" type="number"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
                 <ion-label position="floating" class="text08"></ion-label>
-                <ion-textarea placeholder="Inserisci una descrizione" formControlName="descrizione"
+                <ion-textarea placeholder="{{'DESCRIZIONE_NP'| translate}}" formControlName="descrizione"
                               maxlength="100"></ion-textarea>
             </ion-item>
 
@@ -41,14 +41,17 @@
                 <ion-datetime placeholder="Seleziona"
                               display-format="DD MMM YYYY, HH:mm"
                               formControlName="data_ora"
-                              min="{{minDate}}" max="2030-12-01"></ion-datetime>
+                              min="{{minDate}}" max="2030-12-01"
+                              monthShortNames='Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic'
+                              doneText="{{'OKOPTION' | translate}}"
+                              cancelText="{{'ANNULLA' | translate}}"></ion-datetime>
             </ion-item>
 
 
             <ion-list>
                 <ion-item>
                     <ion-label>{{'TIPOLOGIA_PARTITA' | translate}}</ion-label>
-                    <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia">
+                    <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipologia" [okText]="'OKOPTION' | translate" [cancelText]="'ANNULLA' | translate">
                         <ion-select-option *ngFor="let t of tipoPartita|async"
                                            [value]="t.nome_tipologia"> {{t.nome_tipologia}} </ion-select-option>
                     </ion-select>
@@ -60,9 +63,9 @@
     </form>
 
     <div class="ion-padding-top ion-margin-top">
-        <ion-button size="medium" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()" [disabled]="!newMatchFormModel.valid" tappable>
+        <ion-button size="medium" class="bordo" expand="full" shape="round" color="primary" (click)="onCreateNewMatch()" [disabled]="!newMatchFormModel.valid" tappable>
             <ion-icon slot="start" name="checkmark"></ion-icon>
-            {{"CREA_PARTITA"}}
+            {{'CREA_PARTITA'| translate}}
         </ion-button>
     </div>
 </ion-content>
