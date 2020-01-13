@@ -20,7 +20,7 @@ export class FeedbackPage implements OnInit {
     private numeroStelle: number;
     private giocatore: Utente;
     private partita: Partita;
-    private check;
+    private giaVotato;
     private feedback;
 
     constructor(private formBuilder: FormBuilder,
@@ -47,7 +47,7 @@ export class FeedbackPage implements OnInit {
             const feedback = 'feedback';
             const check = 'check';
             this.feedback = res[feedback][0];
-            this.check = res[check];
+            this.giaVotato = res[check];
 
         });
 

@@ -90,8 +90,8 @@
             <ion-avatar slot="start">
                 <img src="../../../assets/images/martello.jpg">
             </ion-avatar>
-            <ion-label *ngIf="f.commento!='null'">
-                <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
+            <ion-label *ngIf="f.commento!='null'" class="ion-text-wrap">
+                <h2><b>{{f.id_giocatore_votante.nome}} {{f.id_giocatore_votante.cognome}}</b></h2>
                 <h3>{{f.commento}}</h3>
 
                 <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
